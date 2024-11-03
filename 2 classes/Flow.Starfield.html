@@ -54,8 +54,8 @@
   <li>    <a href="../2 classes/Flow.Mirror.html">Flow.Mirror</a></li>
   <li>    <a href="../2 classes/Flow.Settings.html">Flow.Settings</a></li>
   <li>    <a href="../2 classes/Flow.SkyLayer.html">Flow.SkyLayer</a></li>
-  <li>    <a href="../2 classes/Flow.Starfield.html">Flow.Starfield</a></li>
-  <li>    <here>Objects.AIObject</here></li>
+  <li>    <here>Flow.Starfield</here></li>
+  <li>    <a href="../2 classes/Objects.AIObject.html">Objects.AIObject</a></li>
   <li>    <a href="../2 classes/Objects.Camera.html">Objects.Camera</a></li>
   <li>    <a href="../2 classes/Objects.LaraObject.html">Objects.LaraObject</a></li>
   <li>    <a href="../2 classes/Objects.Moveable.html">Objects.Moveable</a></li>
@@ -101,8 +101,8 @@
 
 <div id="content">
 
-<h1>Class <code>Objects.AIObject</code></h1>
-<p>AI object</p>
+<h1>Class <code>Flow.Starfield</code></h1>
+<p>Represents a starfield.</p>
 <p>
 
 </p>
@@ -111,49 +111,52 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#AIObject:GetPosition">AIObject:GetPosition()</a></td>
-	<td class="summary">Get the object's position</td>
+	<td class="name" ><a href="#Starfield">Starfield(starCount)</a></td>
+	<td class="summary">Create a starfield object with only stars.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:SetPosition">AIObject:SetPosition(position)</a></td>
-	<td class="summary">Set the object's position</td>
+	<td class="name" ><a href="#Starfield">Starfield(starCount, meteorCount)</a></td>
+	<td class="summary">Create a starfield object with stars and meteors.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:GetRotationY">AIObject:GetRotationY()</a></td>
-	<td class="summary">Get the object's Y-axis rotation.</td>
+	<td class="name" ><a href="#Starfield:GetStarsEnabled">Starfield:GetStarsEnabled()</a></td>
+	<td class="summary">Get the starfield's enabled status of stars.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:SetRotationY">AIObject:SetRotationY(rotation)</a></td>
-	<td class="summary">Set the object's Y-axis rotation.</td>
+	<td class="name" ><a href="#Starfield:GetMeteorsEnabled">Starfield:GetMeteorsEnabled()</a></td>
+	<td class="summary">Get the starfield's enabled status of meteors.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:GetName">AIObject:GetName()</a></td>
-	<td class="summary">Get the object's unique string identifier</td>
+	<td class="name" ><a href="#Starfield:GetStarCount">Starfield:GetStarCount()</a></td>
+	<td class="summary">Get the starfield's number of stars.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:SetName">AIObject:SetName(name)</a></td>
-	<td class="summary">Set the object's name (its unique string identifier)</td>
+	<td class="name" ><a href="#Starfield:GetMeteorCount">Starfield:GetMeteorCount()</a></td>
+	<td class="summary">Get the starfield's number of meteors.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:GetRoom">AIObject:GetRoom()</a></td>
-	<td class="summary">Get the current room of the object</td>
+	<td class="name" ><a href="#Starfield:GetMeteorSpawnDensity">Starfield:GetMeteorSpawnDensity()</a></td>
+	<td class="summary">Get the starfield's meteor spawn density.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:GetRoomNumber">AIObject:GetRoomNumber()</a></td>
-	<td class="summary">Get the current room number of the object</td>
+	<td class="name" ><a href="#Starfield:GetMeteorVelocity">Starfield:GetMeteorVelocity()</a></td>
+	<td class="summary">Get the starfield's meteor velocity.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:SetRoomNumber">AIObject:SetRoomNumber(ID)</a></td>
-	<td class="summary">Set room number of the object
- This is used in conjunction with SetPosition to teleport the object to a new room.</td>
+	<td class="name" ><a href="#Starfield:SetStarCount">Starfield:SetStarCount(New)</a></td>
+	<td class="summary">Set the starfield's number of stars (6000 max).</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:GetObjectID">AIObject:GetObjectID()</a></td>
-	<td class="summary">Retrieve the object ID</td>
+	<td class="name" ><a href="#Starfield:SetMeteorCount">Starfield:SetMeteorCount(New)</a></td>
+	<td class="summary">Set the starfield's number of meteors (100 max).</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#AIObject:SetObjectID">AIObject:SetObjectID(ID)</a></td>
-	<td class="summary">Change the object's ID.</td>
+	<td class="name" ><a href="#Starfield:SetMeteorSpawnDensity">Starfield:SetMeteorSpawnDensity(New)</a></td>
+	<td class="summary">Set the starfield's meteor spawn density.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#Starfield:SetMeteorVelocity">Starfield:SetMeteorVelocity(New)</a></td>
+	<td class="summary">Set the starfield's meteor velocity.</td>
 	</tr>
 </table>
 
@@ -165,207 +168,113 @@
 
     <dl class="function">
     <dt>
-    <a name = "AIObject:GetPosition"></a>
-    <strong>AIObject:GetPosition()</strong>
+    <a name = "Starfield"></a>
+    <strong>Starfield(starCount)</strong>
     </dt>
     <dd>
-    Get the object's position
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-        a copy of the object's position
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:SetPosition"></a>
-    <strong>AIObject:SetPosition(position)</strong>
-    </dt>
-    <dd>
-    Set the object's position
+    Create a starfield object with only stars. ()
 
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">position</span>
-            <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-         the new position of the object
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:GetRotationY"></a>
-    <strong>AIObject:GetRotationY()</strong>
-    </dt>
-    <dd>
-    Get the object's Y-axis rotation.
- To the best of my knowledge, the rotation of an AIObject has no effect.
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the object's Y-axis rotation
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:SetRotationY"></a>
-    <strong>AIObject:SetRotationY(rotation)</strong>
-    </dt>
-    <dd>
-    Set the object's Y-axis rotation.
- To the best of my knowledge, the rotation of an AIObject has no effect.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">rotation</span>
-            <span class="types"><span class="type">number</span></span>
-         The object's new Y-axis rotation
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:GetName"></a>
-    <strong>AIObject:GetName()</strong>
-    </dt>
-    <dd>
-    Get the object's unique string identifier
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-        the object's name
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:SetName"></a>
-    <strong>AIObject:SetName(name)</strong>
-    </dt>
-    <dd>
-    Set the object's name (its unique string identifier)
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-         The object's new name
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:GetRoom"></a>
-    <strong>AIObject:GetRoom()</strong>
-    </dt>
-    <dd>
-    Get the current room of the object
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">Room</span></span>
-        current room of the object
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:GetRoomNumber"></a>
-    <strong>AIObject:GetRoomNumber()</strong>
-    </dt>
-    <dd>
-    Get the current room number of the object
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">int</span></span>
-        number representing the current room of the object
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "AIObject:SetRoomNumber"></a>
-    <strong>AIObject:SetRoomNumber(ID)</strong>
-    </dt>
-    <dd>
-    Set room number of the object
- This is used in conjunction with SetPosition to teleport the object to a new room.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ID</span>
+        <li><span class="parameter">starCount</span>
             <span class="types"><span class="type">int</span></span>
-         the ID of the new room
+         Star count.
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../2 classes/Flow.Starfield.html#Starfield">Starfield</a></span>
+        A new Starfield object.
+    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "AIObject:GetObjectID"></a>
-    <strong>AIObject:GetObjectID()</strong>
+    <a name = "Starfield"></a>
+    <strong>Starfield(starCount, meteorCount)</strong>
     </dt>
     <dd>
-    Retrieve the object ID
+    Create a starfield object with stars and meteors. ()
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">starCount</span>
+            <span class="types"><span class="type">int</span></span>
+         Star count (6000 max).
+        </li>
+        <li><span class="parameter">meteorCount</span>
+            <span class="types"><span class="type">int</span></span>
+         Meteor count (100 max).
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../2 classes/Flow.Starfield.html#Starfield">Starfield</a></span>
+        A new Starfield object.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:GetStarsEnabled"></a>
+    <strong>Starfield:GetStarsEnabled()</strong>
+    </dt>
+    <dd>
+    Get the starfield's enabled status of stars. ()
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        Stars enabled status.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:GetMeteorsEnabled"></a>
+    <strong>Starfield:GetMeteorsEnabled()</strong>
+    </dt>
+    <dd>
+    Get the starfield's enabled status of meteors. ()
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        Meteors enabled status.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:GetStarCount"></a>
+    <strong>Starfield:GetStarCount()</strong>
+    </dt>
+    <dd>
+    Get the starfield's number of stars. ()
 
 
 
@@ -374,7 +283,7 @@
     <ol>
 
            <span class="types"><span class="type">int</span></span>
-        a number representing the ID of the object
+        Count.
     </ol>
 
 
@@ -382,35 +291,154 @@
 
 </dd>
     <dt>
-    <a name = "AIObject:SetObjectID"></a>
-    <strong>AIObject:SetObjectID(ID)</strong>
+    <a name = "Starfield:GetMeteorCount"></a>
+    <strong>Starfield:GetMeteorCount()</strong>
     </dt>
     <dd>
-    Change the object's ID.  This will change the type of AI object it is.
- Note that a baddy will gain the behaviour of the tile it's on <em>before</em> said baddy is triggered.
- This means that changing the type of an AI object beneath a moveable will have no effect.
- Instead, this function can be used to change an object that the baddy isn't standing on.
- For example, you could have a pair of AI<em>GUARD objects, and change one or the other two
- AI</em>PATROL_1 based on whether the player has a certain item or not.
+    Get the starfield's number of meteors. ()
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Count.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:GetMeteorSpawnDensity"></a>
+    <strong>Starfield:GetMeteorSpawnDensity()</strong>
+    </dt>
+    <dd>
+    Get the starfield's meteor spawn density. ()
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Spawn density.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:GetMeteorVelocity"></a>
+    <strong>Starfield:GetMeteorVelocity()</strong>
+    </dt>
+    <dd>
+    Get the starfield's meteor velocity. ()
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">float</span></span>
+        Velocity.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:SetStarCount"></a>
+    <strong>Starfield:SetStarCount(New)</strong>
+    </dt>
+    <dd>
+    Set the starfield's number of stars (6000 max). (int)
 
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">ID</span>
-            <span class="types"><a class="type" href="../4 enums/Objects.ObjID.html#">ObjID</a></span>
-         the new ID
+        <li><span class="parameter">New</span>
+            <span class="types"><span class="type">int</span></span>
+         count.
         </li>
     </ul>
 
 
 
 
-    <h3>Usage:</h3>
+
+</dd>
+    <dt>
+    <a name = "Starfield:SetMeteorCount"></a>
+    <strong>Starfield:SetMeteorCount(New)</strong>
+    </dt>
+    <dd>
+    Set the starfield's number of meteors (100 max). (int)
+
+
+
+    <h3>Parameters:</h3>
     <ul>
-        <pre class="example">aiObj = TEN.Objects.GetMoveableByName(<span class="string">"ai_guard_sphinx_room"</span>)
-aiObj:SetObjectID(TEN.Objects.ObjID.AI_PATROL1)</pre>
+        <li><span class="parameter">New</span>
+            <span class="types"><span class="type">int</span></span>
+         count.
+        </li>
     </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:SetMeteorSpawnDensity"></a>
+    <strong>Starfield:SetMeteorSpawnDensity(New)</strong>
+    </dt>
+    <dd>
+    Set the starfield's meteor spawn density. (int)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">New</span>
+            <span class="types"><span class="type">int</span></span>
+         spawn density.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starfield:SetMeteorVelocity"></a>
+    <strong>Starfield:SetMeteorVelocity(New)</strong>
+    </dt>
+    <dd>
+    Set the starfield's meteor velocity. (float)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">New</span>
+            <span class="types"><span class="type">int</span></span>
+         velocity.
+        </li>
+    </ul>
+
+
+
+
 
 </dd>
 </dl>
