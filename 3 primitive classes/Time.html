@@ -56,7 +56,7 @@
   <li>    <a href="../2 classes/Objects.Sink.html">Objects.Sink</a></li>
   <li>    <a href="../2 classes/Objects.SoundSource.html">Objects.SoundSource</a></li>
   <li>    <a href="../2 classes/Objects.Static.html">Objects.Static</a></li>
-  <li>    <here>Objects.Volume</here></li>
+  <li>    <a href="../2 classes/Objects.Volume.html">Objects.Volume</a></li>
   <li>    <a href="../2 classes/Strings.DisplayString.html">Strings.DisplayString</a></li>
   <li>    <a href="../2 classes/View.DisplaySprite.html">View.DisplaySprite</a></li>
 </ul>
@@ -69,7 +69,7 @@
   <li>    <a href="../3 primitive classes/Flow.Starfield.html">Flow.Starfield</a></li>
   <li>    <a href="../3 primitive classes/Color.html">Color</a></li>
   <li>    <a href="../3 primitive classes/Rotation.html">Rotation</a></li>
-  <li>    <a href="../3 primitive classes/Time.html">Time</a></li>
+  <li>    <here>Time</here></li>
   <li>    <a href="../3 primitive classes/Vec2.html">Vec2</a></li>
   <li>    <a href="../3 primitive classes/Vec3.html">Vec3</a></li>
 </ul>
@@ -106,66 +106,61 @@
 
 <div id="content">
 
-<h1>Class <code>Objects.Volume</code></h1>
-<p>Activator volume.</p>
+<h1>Primitive Class <code>Time</code></h1>
+<p>Represents a time value in game frames, with support for formatting to hours, minutes, seconds, and centiseconds (1/100th of a second).</p>
 <p>
 
 </p>
 
 
+<h2><a href="#Members">Members</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" ><a href="#h">h</a></td>
+	<td class="summary">(int) Hours component.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#m">m</a></td>
+	<td class="summary">(int) Minutes component.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#s">s</a></td>
+	<td class="summary">(int) Seconds component.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#c">c</a></td>
+	<td class="summary">(int) Centiseconds component.</td>
+	</tr>
+</table>
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#Volume:GetName">Volume:GetName()</a></td>
-	<td class="summary">Get the unique string identifier of this volume.</td>
+	<td class="name" ><a href="#Time">Time()</a></td>
+	<td class="summary">Create a Time object.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Volume:GetPosition">Volume:GetPosition()</a></td>
-	<td class="summary">Get the position of this volume.</td>
+	<td class="name" ><a href="#Time">Time(gameFrames)</a></td>
+	<td class="summary">Create a Time object from a total game frame count (1 second = 30 frames).</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Volume:GetRotation">Volume:GetRotation()</a></td>
-	<td class="summary">Get the rotation of this volume.</td>
+	<td class="name" ><a href="#Time">Time(formattedTime)</a></td>
+	<td class="summary">Create a Time object from a formatted string.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Volume:GetScale">Volume:GetScale()</a></td>
-	<td class="summary">Get this scale of this volume.</td>
+	<td class="name" ><a href="#Time">Time(timeUnits)</a></td>
+	<td class="summary">Create a Time object from a time unit table (hours, minutes, seconds, centiseconds).</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Volume:SetName">Volume:SetName(name)</a></td>
-	<td class="summary">Set the unique string identifier of this volume.</td>
+	<td class="name" ><a href="#Time:GetFrameCount">Time:GetFrameCount()</a></td>
+	<td class="summary">Get the total game frame count.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Volume:SetPosition">Volume:SetPosition(pos)</a></td>
-	<td class="summary">Set the position of this volume.</td>
+	<td class="name" ><a href="#Time:GetTimeUnits">Time:GetTimeUnits()</a></td>
+	<td class="summary">Get the time in hours, minutes, seconds, and centiseconds as a table.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Volume:SetRotation">Volume:SetRotation(rot)</a></td>
-	<td class="summary">Set the rotation of this volume.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Volume:SetScale">Volume:SetScale(scale)</a></td>
-	<td class="summary">Set the scale of the volume.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Volume:GetActive">Volume:GetActive()</a></td>
-	<td class="summary">Determine if this volume is active.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Volume:IsMoveableInside">Volume:IsMoveableInside(Moveable)</a></td>
-	<td class="summary">Determine if a moveable is inside this volume.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Volume:Enable">Volume:Enable()</a></td>
-	<td class="summary">Enable this volume.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Volume:Disable">Volume:Disable()</a></td>
-	<td class="summary">Disable this volume.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Volume:ClearActivators">Volume:ClearActivators()</a></td>
-	<td class="summary">Clear the activators for this volume, allowing it to trigger again.</td>
+	<td class="name" ><a href="#tostring">tostring(this)</a></td>
+	<td class="summary">Convert this Time object to a formatted string.</td>
 	</tr>
 </table>
 
@@ -173,270 +168,243 @@
 <br/>
 
 
+    <h2 class="section-header "><a name="Members"></a>Members</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "h"></a>
+    <strong>h</strong>
+    </dt>
+    <dd>
+    (int) Hours component.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "m"></a>
+    <strong>m</strong>
+    </dt>
+    <dd>
+    (int) Minutes component.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "s"></a>
+    <strong>s</strong>
+    </dt>
+    <dd>
+    (int) Seconds component.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "c"></a>
+    <strong>c</strong>
+    </dt>
+    <dd>
+    (int) Centiseconds component.
+
+
+
+
+
+
+
+
+</dd>
+</dl>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
-    <a name = "Volume:GetName"></a>
-    <strong>Volume:GetName()</strong>
+    <a name = "Time"></a>
+    <strong>Time()</strong>
     </dt>
     <dd>
-    Get the unique string identifier of this volume. ()
+    Create a Time object.
 
 
 
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 primitive classes/Time.html#">Time</a></span>
+        A new Time object initialized to zero time.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Time"></a>
+    <strong>Time(gameFrames)</strong>
+    </dt>
+    <dd>
+    Create a Time object from a total game frame count (1 second = 30 frames).
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">gameFrames</span>
+            <span class="types"><span class="type">int</span></span>
+         Total game frame count.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 primitive classes/Time.html#">Time</a></span>
+        A new Time object initialized with the given frame count.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Time"></a>
+    <strong>Time(formattedTime)</strong>
+    </dt>
+    <dd>
+    Create a Time object from a formatted string.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">formattedTime</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         Time in the format "HH:MM:SS[.CC]", where [.CC] is centiseconds and is optional.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 primitive classes/Time.html#">Time</a></span>
+        A new Time object parsed from the given string.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Time"></a>
+    <strong>Time(timeUnits)</strong>
+    </dt>
+    <dd>
+    Create a Time object from a time unit table (hours, minutes, seconds, centiseconds).
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeUnits</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         A time unit table in the format {HH, MM, SS, [CC]}, where [CC] is optional.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 primitive classes/Time.html#">Time</a></span>
+        A new Time object initialized with the given values.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Time:GetFrameCount"></a>
+    <strong>Time:GetFrameCount()</strong>
+    </dt>
+    <dd>
+    Get the total game frame count.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Total number of game frames.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Time:GetTimeUnits"></a>
+    <strong>Time:GetTimeUnits()</strong>
+    </dt>
+    <dd>
+    Get the time in hours, minutes, seconds, and centiseconds as a table.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        A table in the format {HH, MM, SS, CC}.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tostring"></a>
+    <strong>tostring(this)</strong>
+    </dt>
+    <dd>
+    Convert this Time object to a formatted string.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">this</span>
+            <span class="types"><a class="type" href="../3 primitive classes/Time.html#">Time</a></span>
+         Time object.
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-        Name.
+        A string showing time in "HH:MM:SS.CC" format.
     </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:GetPosition"></a>
-    <strong>Volume:GetPosition()</strong>
-    </dt>
-    <dd>
-    Get the position of this volume. ()
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-        Position.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:GetRotation"></a>
-    <strong>Volume:GetRotation()</strong>
-    </dt>
-    <dd>
-    Get the rotation of this volume. ()
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Rotation.html#">Rotation</a></span>
-        Rotation.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:GetScale"></a>
-    <strong>Volume:GetScale()</strong>
-    </dt>
-    <dd>
-    Get this scale of this volume. ()
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-        Scale.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:SetName"></a>
-    <strong>Volume:SetName(name)</strong>
-    </dt>
-    <dd>
-    Set the unique string identifier of this volume. ()
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-         New name.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:SetPosition"></a>
-    <strong>Volume:SetPosition(pos)</strong>
-    </dt>
-    <dd>
-    Set the position of this volume. ()
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">pos</span>
-            <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-         New position.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:SetRotation"></a>
-    <strong>Volume:SetRotation(rot)</strong>
-    </dt>
-    <dd>
-    Set the rotation of this volume. ()
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">rot</span>
-            <span class="types"><a class="type" href="../3 primitive classes/Rotation.html#">Rotation</a></span>
-         New rotation.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:SetScale"></a>
-    <strong>Volume:SetScale(scale)</strong>
-    </dt>
-    <dd>
-    Set the scale of the volume. ()
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">scale</span>
-            <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-         New scale.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:GetActive"></a>
-    <strong>Volume:GetActive()</strong>
-    </dt>
-    <dd>
-    Determine if this volume is active. ()
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        Boolean representing active status.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:IsMoveableInside"></a>
-    <strong>Volume:IsMoveableInside(Moveable)</strong>
-    </dt>
-    <dd>
-    Determine if a moveable is inside this volume. ()
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">Moveable</span>
-            <span class="types"><a class="type" href="../2 classes/Objects.Moveable.html#">Moveable</a></span>
-         to be checked for containment.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        Boolean representing containment status.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:Enable"></a>
-    <strong>Volume:Enable()</strong>
-    </dt>
-    <dd>
-    Enable this volume. ()
-
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:Disable"></a>
-    <strong>Volume:Disable()</strong>
-    </dt>
-    <dd>
-    Disable this volume. ()
-
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Volume:ClearActivators"></a>
-    <strong>Volume:ClearActivators()</strong>
-    </dt>
-    <dd>
-    Clear the activators for this volume, allowing it to trigger again. ()
-
-
-
-
 
 
 

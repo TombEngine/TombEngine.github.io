@@ -47,7 +47,7 @@
 <ul class="nowrap">
   <li>    <a href="../2 classes/Flow.Level.html">Flow.Level</a></li>
   <li>    <a href="../2 classes/Flow.Settings.html">Flow.Settings</a></li>
-  <li>    <a href="../2 classes/Flow.Statistics.html">Flow.Statistics</a></li>
+  <li>    <here>Flow.Statistics</here></li>
   <li>    <a href="../2 classes/Objects.AIObject.html">Objects.AIObject</a></li>
   <li>    <a href="../2 classes/Objects.Camera.html">Objects.Camera</a></li>
   <li>    <a href="../2 classes/Objects.LaraObject.html">Objects.LaraObject</a></li>
@@ -68,7 +68,7 @@
   <li>    <a href="../3 primitive classes/Flow.SkyLayer.html">Flow.SkyLayer</a></li>
   <li>    <a href="../3 primitive classes/Flow.Starfield.html">Flow.Starfield</a></li>
   <li>    <a href="../3 primitive classes/Color.html">Color</a></li>
-  <li>    <here>Rotation</here></li>
+  <li>    <a href="../3 primitive classes/Rotation.html">Rotation</a></li>
   <li>    <a href="../3 primitive classes/Time.html">Time</a></li>
   <li>    <a href="../3 primitive classes/Vec2.html">Vec2</a></li>
   <li>    <a href="../3 primitive classes/Vec3.html">Vec3</a></li>
@@ -106,43 +106,44 @@
 
 <div id="content">
 
-<h1>Primitive Class <code>Rotation</code></h1>
-<p>Represents a degree-based 3D rotation.</p>
-<p> All values are clamped to the range [0.0, 360.0].</p>
+<h1>Class <code>Flow.Statistics</code></h1>
+<p>A set of gameplay statistics.</p>
+<p> Can be accessed using <a href="../1 modules/Flow.html#GetStatistics">Flow.GetStatistics</a> and <a href="../1 modules/Flow.html#SetStatistics">Flow.SetStatistics</a> functions.</p>
 
 
-<h2><a href="#Members">Members</a></h2>
+<h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#x">x</a></td>
-	<td class="summary">(float) X angle component.</td>
+	<td class="name" ><a href="#ammoHits">ammoHits</a></td>
+	<td class="summary">Ammo hits.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#y">y</a></td>
-	<td class="summary">(float) Y angle component.</td>
+	<td class="name" ><a href="#ammoUsed">ammoUsed</a></td>
+	<td class="summary">Ammo used.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#z">z</a></td>
-	<td class="summary">(float) Z angle component.</td>
-	</tr>
-</table>
-<h2><a href="#Functions">Functions</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" ><a href="#Rotation">Rotation(x, y, z)</a></td>
-	<td class="summary">
-
-</td>
+	<td class="name" ><a href="#distanceTraveled">distanceTraveled</a></td>
+	<td class="summary">Distance traveled.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Direction">Direction()</a></td>
-	<td class="summary">Converts rotation to a direction normal.</td>
+	<td class="name" ><a href="#healthPacksUsed">healthPacksUsed</a></td>
+	<td class="summary">Health packs used.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#__tostring">__tostring(rotation)</a></td>
-	<td class="summary">
-
-</td>
+	<td class="name" ><a href="#damageTaken">damageTaken</a></td>
+	<td class="summary">Damage taken.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#kills">kills</a></td>
+	<td class="summary">Kills.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#secrets">secrets</a></td>
+	<td class="summary">Secrets.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#timeTaken">timeTaken</a></td>
+	<td class="summary">Time taken.</td>
 	</tr>
 </table>
 
@@ -150,142 +151,172 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Members"></a>Members</h2>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
 
     <dl class="function">
     <dt>
-    <a name = "x"></a>
-    <strong>x</strong>
+    <a name = "ammoHits"></a>
+    <strong>ammoHits</strong>
     </dt>
     <dd>
-    (float) X angle component.
+    Ammo hits.
 
 
 
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "y"></a>
-    <strong>y</strong>
-    </dt>
-    <dd>
-    (float) Y angle component.
-
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "z"></a>
-    <strong>z</strong>
-    </dt>
-    <dd>
-    (float) Z angle component.
-
-
-
-
-
-
-
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "Rotation"></a>
-    <strong>Rotation(x, y, z)</strong>
-    </dt>
-    <dd>
-
-
-
-
-
-
-    <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-            <span class="types"><span class="type">float</span></span>
-         X angle component.
-        </li>
-        <li><span class="parameter">y</span>
-            <span class="types"><span class="type">float</span></span>
-         Y angle component.
-        </li>
-        <li><span class="parameter">z</span>
-            <span class="types"><span class="type">float</span></span>
-         Z angle component.
+        <li><span class="parameter">ammoHits</span>
+            <span class="types"><span class="type">int</span></span>
+         amount of successful enemy hits.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Rotation.html#">Rotation</a></span>
-        A Rotation.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "Direction"></a>
-    <strong>Direction()</strong>
+    <a name = "ammoUsed"></a>
+    <strong>ammoUsed</strong>
     </dt>
     <dd>
-    Converts rotation to a direction normal.
+    Ammo used.
 
 
 
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Vec3.html#">Vec3</a></span>
-        resulting normal calculated from this rotation.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "__tostring"></a>
-    <strong>__tostring(rotation)</strong>
-    </dt>
-    <dd>
-
-
-
-
-
-
-    <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">rotation</span>
-            <span class="types"><a class="type" href="../3 primitive classes/Rotation.html#">Rotation</a></span>
-         this Rotation.
+        <li><span class="parameter">ammoUsed</span>
+            <span class="types"><span class="type">int</span></span>
+         amount of used ammo.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-        A string showing the X, Y, and Z angle components of the Rotation.
-    </ol>
+
+
+
+</dd>
+    <dt>
+    <a name = "distanceTraveled"></a>
+    <strong>distanceTraveled</strong>
+    </dt>
+    <dd>
+    Distance traveled.
+
+
+
+    <ul>
+        <li><span class="parameter">distanceTraveled</span>
+            <span class="types"><span class="type">int</span></span>
+         amount of traveled distance in world units. One meter is 420 world units.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "healthPacksUsed"></a>
+    <strong>healthPacksUsed</strong>
+    </dt>
+    <dd>
+    Health packs used.
+
+
+
+    <ul>
+        <li><span class="parameter">healthPacksUsed</span>
+            <span class="types"><span class="type">int</span></span>
+         amount of used medipacks.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "damageTaken"></a>
+    <strong>damageTaken</strong>
+    </dt>
+    <dd>
+    Damage taken.
+
+
+
+    <ul>
+        <li><span class="parameter">damageTaken</span>
+            <span class="types"><span class="type">int</span></span>
+         overall amount of taken damage.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "kills"></a>
+    <strong>kills</strong>
+    </dt>
+    <dd>
+    Kills.
+
+
+
+    <ul>
+        <li><span class="parameter">kills</span>
+            <span class="types"><span class="type">int</span></span>
+         amount of killed enemies.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "secrets"></a>
+    <strong>secrets</strong>
+    </dt>
+    <dd>
+    Secrets.
+
+
+
+    <ul>
+        <li><span class="parameter">secrets</span>
+            <span class="types"><span class="type">int</span></span>
+         amount of found secrets.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timeTaken"></a>
+    <strong>timeTaken</strong>
+    </dt>
+    <dd>
+    Time taken.
+
+
+
+    <ul>
+        <li><span class="parameter">timeTaken</span>
+            <span class="types"><a class="type" href="../3 primitive classes/Time.html#">Time</a></span>
+         amount of time passed.
+        </li>
+    </ul>
+
 
 
 
