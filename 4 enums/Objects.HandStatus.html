@@ -87,7 +87,7 @@
   <li>    <a href="../4 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
   <li>    <a href="../4 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../4 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
-  <li>    <a href="../4 enums/Objects.HandStatus.html">Objects.HandStatus</a></li>
+  <li>    <here>Objects.HandStatus</here></li>
   <li>    <a href="../4 enums/Objects.WeaponType.html">Objects.WeaponType</a></li>
   <li>    <a href="../4 enums/Objects.MoveableStatus.html">Objects.MoveableStatus</a></li>
   <li>    <a href="../4 enums/Objects.ObjID.html">Objects.ObjID</a></li>
@@ -96,7 +96,7 @@
   <li>    <a href="../4 enums/Sound.SoundTrackType.html">Sound.SoundTrackType</a></li>
   <li>    <a href="../4 enums/Strings.DisplayStringOption.html">Strings.DisplayStringOption</a></li>
   <li>    <a href="../4 enums/Util.LogLevel.html">Util.LogLevel</a></li>
-  <li>    <here>View.AlignMode</here></li>
+  <li>    <a href="../4 enums/View.AlignMode.html">View.AlignMode</a></li>
   <li>    <a href="../4 enums/View.CameraType.html">View.CameraType</a></li>
   <li>    <a href="../4 enums/View.PostProcessMode.html">View.PostProcessMode</a></li>
   <li>    <a href="../4 enums/View.ScaleMode.html">View.ScaleMode</a></li>
@@ -114,8 +114,8 @@
 
 <div id="content">
 
-<h1>Enum <code>View.AlignMode</code></h1>
-<p>Constants for sprite align modes.</p>
+<h1>Enum <code>Objects.HandStatus</code></h1>
+<p>Constants for player hand statuses.</p>
 <p>
 
 </p>
@@ -124,8 +124,8 @@
 <h2><a href="#Tables">Tables</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#View.AlignMode">View.AlignMode</a></td>
-	<td class="summary">Table of View.AlignMode constants.</td>
+	<td class="name" ><a href="#Objects.HandStatus">Objects.HandStatus</a></td>
+	<td class="summary">Table of Objects.HandStatus constants.</td>
 	</tr>
 </table>
 
@@ -137,27 +137,22 @@
 
     <dl class="function">
     <dt>
-    <a name = "View.AlignMode"></a>
-    <strong>View.AlignMode</strong>
+    <a name = "Objects.HandStatus"></a>
+    <strong>Objects.HandStatus</strong>
     </dt>
     <dd>
 
-<p>Table of View.AlignMode constants. </p>
-
-<p> The following constants are inside View.AlignMode. To be used with <a href="../2 classes/Strings.DisplayString.html#">Strings.DisplayString</a> class.</p>
+<p>Table of Objects.HandStatus constants.
+ To be used with <a href="../2 classes/Objects.LaraObject.html#LaraObject:GetAmmoType">Objects.LaraObject.GetAmmoType</a> function.</p>
 
 <ul>
-    <li><code>CENTER</code></li>
-    <li><code>CENTER_TOP</code></li>
-    <li><code>CENTER_BOTTOM</code></li>
-    <li><code>CENTER_LEFT</code></li>
-    <li><code>CENTER_RIGHT</code></li>
-    <li><code>TOP_LEFT</code></li>
-    <li><code>TOP_RIGHT</code></li>
-    <li><code>BOTTOM_LEFT</code></li>
-    <li><code>BOTTOM_RIGHT</code>
-    </li>
+    <li><code>FREE</code></li>
+    <li><code>BUSY</code></li>
+    <li><code>WEAPON_DRAW</code></li>
+    <li><code>WEAPON_READY</code></li>
+    <li><code>SPECIAL</code></li>
 </ul>
+
 
 
 

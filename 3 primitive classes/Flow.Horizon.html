@@ -64,7 +64,7 @@
 <h2>3 Primitive Classes</h2>
 <ul class="nowrap">
   <li>    <a href="../3 primitive classes/Flow.Fog.html">Flow.Fog</a></li>
-  <li>    <a href="../3 primitive classes/Flow.Horizon.html">Flow.Horizon</a></li>
+  <li>    <here>Flow.Horizon</here></li>
   <li>    <a href="../3 primitive classes/Flow.InventoryItem.html">Flow.InventoryItem</a></li>
   <li>    <a href="../3 primitive classes/Flow.LensFlare.html">Flow.LensFlare</a></li>
   <li>    <a href="../3 primitive classes/Flow.SkyLayer.html">Flow.SkyLayer</a></li>
@@ -96,7 +96,7 @@
   <li>    <a href="../4 enums/Sound.SoundTrackType.html">Sound.SoundTrackType</a></li>
   <li>    <a href="../4 enums/Strings.DisplayStringOption.html">Strings.DisplayStringOption</a></li>
   <li>    <a href="../4 enums/Util.LogLevel.html">Util.LogLevel</a></li>
-  <li>    <here>View.AlignMode</here></li>
+  <li>    <a href="../4 enums/View.AlignMode.html">View.AlignMode</a></li>
   <li>    <a href="../4 enums/View.CameraType.html">View.CameraType</a></li>
   <li>    <a href="../4 enums/View.PostProcessMode.html">View.PostProcessMode</a></li>
   <li>    <a href="../4 enums/View.ScaleMode.html">View.ScaleMode</a></li>
@@ -114,18 +114,39 @@
 
 <div id="content">
 
-<h1>Enum <code>View.AlignMode</code></h1>
-<p>Constants for sprite align modes.</p>
-<p>
-
-</p>
+<h1>Primitive Class <code>Flow.Horizon</code></h1>
+<p>Represents a horizon.</p>
+<p> To be used with <a href="../2 classes/Flow.Level.html#horizon1">Flow.Level.horizon1</a> and <a href="../2 classes/Flow.Level.html#horizon2">Flow.Level.horizon2</a> properties.</p>
 
 
-<h2><a href="#Tables">Tables</a></h2>
+<h2><a href="#Members">Members</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#View.AlignMode">View.AlignMode</a></td>
-	<td class="summary">Table of View.AlignMode constants.</td>
+	<td class="name" ><a href="#enabled">enabled</a></td>
+	<td class="summary">(bool) Horizon enabled state.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#objectID">objectID</a></td>
+	<td class="summary">(<a href="../4 enums/Objects.ObjID.html#">Objects.ObjID</a>) Horizon object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#position">position</a></td>
+	<td class="summary">(<a href="../3 primitive classes/Vec3.html#">Vec3</a>) Horizon position.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#rotation">rotation</a></td>
+	<td class="summary">(<a href="../3 primitive classes/Rotation.html#">Rotation</a>) Horizon rotation.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#transparency">transparency</a></td>
+	<td class="summary">(float) Horizon transparency.</td>
+	</tr>
+</table>
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" ><a href="#Horizon">Horizon(objectID)</a></td>
+	<td class="summary">Create a horizon object.</td>
 	</tr>
 </table>
 
@@ -133,36 +154,115 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+    <h2 class="section-header "><a name="Members"></a>Members</h2>
 
     <dl class="function">
     <dt>
-    <a name = "View.AlignMode"></a>
-    <strong>View.AlignMode</strong>
+    <a name = "enabled"></a>
+    <strong>enabled</strong>
     </dt>
     <dd>
-
-<p>Table of View.AlignMode constants. </p>
-
-<p> The following constants are inside View.AlignMode. To be used with <a href="../2 classes/Strings.DisplayString.html#">Strings.DisplayString</a> class.</p>
-
-<ul>
-    <li><code>CENTER</code></li>
-    <li><code>CENTER_TOP</code></li>
-    <li><code>CENTER_BOTTOM</code></li>
-    <li><code>CENTER_LEFT</code></li>
-    <li><code>CENTER_RIGHT</code></li>
-    <li><code>TOP_LEFT</code></li>
-    <li><code>TOP_RIGHT</code></li>
-    <li><code>BOTTOM_LEFT</code></li>
-    <li><code>BOTTOM_RIGHT</code>
-    </li>
-</ul>
+    (bool) Horizon enabled state.
+ If set to true, horizon will be visible.
 
 
 
 
 
+
+
+
+</dd>
+    <dt>
+    <a name = "objectID"></a>
+    <strong>objectID</strong>
+    </dt>
+    <dd>
+    (<a href="../4 enums/Objects.ObjID.html#">Objects.ObjID</a>) Horizon object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "position"></a>
+    <strong>position</strong>
+    </dt>
+    <dd>
+    (<a href="../3 primitive classes/Vec3.html#">Vec3</a>) Horizon position.
+ Specifies an offset from the camera origin.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rotation"></a>
+    <strong>rotation</strong>
+    </dt>
+    <dd>
+    (<a href="../3 primitive classes/Rotation.html#">Rotation</a>) Horizon rotation.
+ Specifies horizon rotation.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "transparency"></a>
+    <strong>transparency</strong>
+    </dt>
+    <dd>
+    (float) Horizon transparency.
+ Specifies horizon transparency on a range from 0 to 1.
+
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Horizon"></a>
+    <strong>Horizon(objectID)</strong>
+    </dt>
+    <dd>
+    Create a horizon object.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">objectID</span>
+            <span class="types"><a class="type" href="../4 enums/Objects.ObjID.html#">ObjID</a></span>
+         Object ID for the horizon to use.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 primitive classes/Flow.Horizon.html#Horizon">Horizon</a></span>
+        A new Horizon object.
+    </ol>
 
 
 
