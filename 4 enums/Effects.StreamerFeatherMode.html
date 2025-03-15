@@ -53,7 +53,7 @@
   <li>    <a href="../2 classes/Objects.Camera.html">Objects.Camera</a></li>
   <li>    <a href="../2 classes/Objects.LaraObject.html">Objects.LaraObject</a></li>
   <li>    <a href="../2 classes/Objects.Moveable.html">Objects.Moveable</a></li>
-  <li>    <here>Objects.Room</here></li>
+  <li>    <a href="../2 classes/Objects.Room.html">Objects.Room</a></li>
   <li>    <a href="../2 classes/Objects.Sink.html">Objects.Sink</a></li>
   <li>    <a href="../2 classes/Objects.SoundSource.html">Objects.SoundSource</a></li>
   <li>    <a href="../2 classes/Objects.Static.html">Objects.Static</a></li>
@@ -80,7 +80,7 @@
   <li>    <a href="../4 enums/Collision.MaterialType.html">Collision.MaterialType</a></li>
   <li>    <a href="../4 enums/Effects.BlendID.html">Effects.BlendID</a></li>
   <li>    <a href="../4 enums/Effects.EffectID.html">Effects.EffectID</a></li>
-  <li>    <a href="../4 enums/Effects.StreamerFeatherMode.html">Effects.StreamerFeatherMode</a></li>
+  <li>    <here>Effects.StreamerFeatherMode</here></li>
   <li>    <a href="../4 enums/Effects.ParticleAnimationType.html">Effects.ParticleAnimationType</a></li>
   <li>    <a href="../4 enums/Flow.ErrorMode.html">Flow.ErrorMode</a></li>
   <li>    <a href="../4 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
@@ -114,54 +114,18 @@
 
 <div id="content">
 
-<h1>Class <code>Objects.Room</code></h1>
-<p>Room object.</p>
+<h1>Enum <code>Effects.StreamerFeatherMode</code></h1>
+<p>Constants for feather modes.</p>
 <p>
 
 </p>
 
 
-<h2><a href="#Functions">Functions</a></h2>
+<h2><a href="#Tables">Tables</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#Room:GetRoomNumber">Room:GetRoomNumber()</a></td>
-	<td class="summary">Get the room's number.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:GetName">Room:GetName()</a></td>
-	<td class="summary">Get the room's unique string identifier.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:GetColor">Room:GetColor()</a></td>
-	<td class="summary">Get the room's ambient light color.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:GetReverbType">Room:GetReverbType()</a></td>
-	<td class="summary">Get the room's reverb type.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:SetName">Room:SetName(name)</a></td>
-	<td class="summary">Set the room's unique string identifier.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:SetReverbType">Room:SetReverbType(reverb)</a></td>
-	<td class="summary">Set the room's reverb type.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:SetFlag">Room:SetFlag(flagID, value)</a></td>
-	<td class="summary">Set the room's specified flag.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:GetFlag">Room:GetFlag(flagID)</a></td>
-	<td class="summary">Get the room's specified flag value (true or false).</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:IsTagPresent">Room:IsTagPresent(tag)</a></td>
-	<td class="summary">Check if the specified tag is set for the room.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#Room:GetActive">Room:GetActive()</a></td>
-	<td class="summary">Check if the room is active.</td>
+	<td class="name" ><a href="#Effects.StreamerFeatherMode">Effects.StreamerFeatherMode</a></td>
+	<td class="summary">Table of Effects.StreamerFeatherMode constants.</td>
 	</tr>
 </table>
 
@@ -169,229 +133,30 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
 
     <dl class="function">
     <dt>
-    <a name = "Room:GetRoomNumber"></a>
-    <strong>Room:GetRoomNumber()</strong>
+    <a name = "Effects.StreamerFeatherMode"></a>
+    <strong>Effects.StreamerFeatherMode</strong>
     </dt>
     <dd>
-    Get the room's number.
 
+<p>Table of Effects.StreamerFeatherMode constants.
+ To be used with <a href="../1 modules/Effects.html#EmitStreamer">Effects.EmitStreamer</a> function.</p>
 
+<ul>
+    <li><code>NONE</code></li>
+    <li><code>CENTER</code></li>
+    <li><code>LEFT</code></li>
+    <li><code>RIGHT</code></li>
+</ul>
 
 
-    <h3>Returns:</h3>
-    <ol>
 
-           <span class="types"><span class="type">int</span></span>
-        Room number.
-    </ol>
 
 
 
-
-</dd>
-    <dt>
-    <a name = "Room:GetName"></a>
-    <strong>Room:GetName()</strong>
-    </dt>
-    <dd>
-    Get the room's unique string identifier.
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-        Room name.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:GetColor"></a>
-    <strong>Room:GetColor()</strong>
-    </dt>
-    <dd>
-    Get the room's ambient light color.
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../3 primitive classes/Color.html#">Color</a></span>
-        Ambient light color.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:GetReverbType"></a>
-    <strong>Room:GetReverbType()</strong>
-    </dt>
-    <dd>
-    Get the room's reverb type.
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../4 enums/Objects.RoomReverb.html#">RoomReverb</a></span>
-        Reverb type.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:SetName"></a>
-    <strong>Room:SetName(name)</strong>
-    </dt>
-    <dd>
-    Set the room's unique string identifier.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-         New name.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:SetReverbType"></a>
-    <strong>Room:SetReverbType(reverb)</strong>
-    </dt>
-    <dd>
-    Set the room's reverb type.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">reverb</span>
-            <span class="types"><a class="type" href="../4 enums/Objects.RoomReverb.html#">RoomReverb</a></span>
-         Reverb type.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:SetFlag"></a>
-    <strong>Room:SetFlag(flagID, value)</strong>
-    </dt>
-    <dd>
-    Set the room's specified flag.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">flagID</span>
-            <span class="types"><a class="type" href="../4 enums/Objects.RoomFlagID.html#">RoomFlagID</a></span>
-         Room flag ID.
-        </li>
-        <li><span class="parameter">value</span>
-            <span class="types"><span class="type">bool</span></span>
-         Boolean to set the flag to.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:GetFlag"></a>
-    <strong>Room:GetFlag(flagID)</strong>
-    </dt>
-    <dd>
-    Get the room's specified flag value (true or false).
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">flagID</span>
-            <span class="types"><a class="type" href="../4 enums/Objects.RoomFlagID.html#">RoomFlagID</a></span>
-         Room flag ID.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:IsTagPresent"></a>
-    <strong>Room:IsTagPresent(tag)</strong>
-    </dt>
-    <dd>
-    Check if the specified tag is set for the room.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">tag</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-         Text tag to check (case sensitive).
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        Boolean of the tag's presence.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Room:GetActive"></a>
-    <strong>Room:GetActive()</strong>
-    </dt>
-    <dd>
-    Check if the room is active.
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        Boolean of the room's active status.
-    </ol>
 
 
 
