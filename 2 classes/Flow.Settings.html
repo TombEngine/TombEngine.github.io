@@ -85,6 +85,7 @@
   <li>    <a href="../4 enums/Flow.ErrorMode.html">Flow.ErrorMode</a></li>
   <li>    <a href="../4 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
   <li>    <a href="../4 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
+  <li>    <a href="../4 enums/Flow.ItemAction.html">Flow.ItemAction</a></li>
   <li>    <a href="../4 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../4 enums/Input.AxisID.html">Input.AxisID</a></li>
   <li>    <a href="../4 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
@@ -195,6 +196,10 @@
 	<tr>
 	<td class="name" ><a href="#smoke">smoke</a></td>
 	<td class="summary">Toggle smoke effect.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#glow">glow</a></td>
+	<td class="summary">Toggle glow effect.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#flicker">flicker</a></td>
@@ -718,6 +723,27 @@
 
 </dd>
     <dt>
+    <a name = "glow"></a>
+    <strong>glow</strong>
+    </dt>
+    <dd>
+    Toggle glow effect.
+
+
+
+    <ul>
+        <li><span class="parameter">glow</span>
+            <span class="types"><span class="type">bool</span></span>
+         Glow effect. Determines whether flare generates glow when burning.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "flicker"></a>
     <strong>flicker</strong>
     </dt>
@@ -757,7 +783,7 @@
     <ul>
         <li><span class="parameter">skinning</span>
             <span class="types"><span class="type">bool</span></span>
-         If enabled, skinning will be used for animated objects with skin. Disable to force classic TR workflow.
+         If enabled, skinning will be used for animated objects with skinned mesh. Disable to force classic TR workflow.
         </li>
     </ul>
 
@@ -1082,7 +1108,7 @@
     <ul>
         <li><span class="parameter">alternateDamage</span>
             <span class="types"><span class="type">int</span></span>
-         For Revolver and HK, specifies damage in lasersight mode. For crossbow, specifies damage for explosive ammo.
+         For crossbow, specifies damage for explosive ammo.
         </li>
     </ul>
 
