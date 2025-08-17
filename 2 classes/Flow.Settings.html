@@ -86,6 +86,8 @@
   <li>    <a href="../4 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
   <li>    <a href="../4 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
   <li>    <a href="../4 enums/Flow.ItemAction.html">Flow.ItemAction</a></li>
+  <li>    <a href="../4 enums/Flow.LaraType.html">Flow.LaraType</a></li>
+  <li>    <a href="../4 enums/Flow.WeatherType.html">Flow.WeatherType</a></li>
   <li>    <a href="../4 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../4 enums/Input.AxisID.html">Input.AxisID</a></li>
   <li>    <a href="../4 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
@@ -106,7 +108,7 @@
 <h2>5 Lua utility modules</h2>
 <ul class="nowrap">
   <li>    <a href="../5 lua utility modules/CustomBar.html">CustomBar</a></li>
-  <li>    <a href="../5 lua utility modules/Diary.html">Diary</a></li>
+  <li>    <a href="../5 lua utility modules/CustomDiary.html">CustomDiary</a></li>
   <li>    <a href="../5 lua utility modules/EventSequence.html">EventSequence</a></li>
   <li>    <a href="../5 lua utility modules/Timer.html">Timer</a></li>
   <li>    <a href="../5 lua utility modules/Type.html">Type</a></li>
@@ -134,6 +136,14 @@
 	<tr>
 	<td class="name" ><a href="#crawlspaceSwandive">crawlspaceSwandive</a></td>
 	<td class="summary">Crawlspace dive.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#overhangClimb">overhangClimb</a></td>
+	<td class="summary">Overhang climbing.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#slideExtended">slideExtended</a></td>
+	<td class="summary">Extended slide mechanics.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#sprintJump">sprintJump</a></td>
@@ -216,7 +226,7 @@
 <h2><a href="#Hair">Hair </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#mesh">mesh</a></td>
+	<td class="name" ><a href="#rootMesh">rootMesh</a></td>
 	<td class="summary">Root mesh to which hair object will attach to.</td>
 	</tr>
 	<tr>
@@ -406,6 +416,48 @@
         <li><span class="parameter">crawlspaceSwandive</span>
             <span class="types"><span class="type">bool</span></span>
          When enabled, player will be able to swandive into crawlspaces.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "overhangClimb"></a>
+    <strong>overhangClimb</strong>
+    </dt>
+    <dd>
+    Overhang climbing.
+
+
+
+    <ul>
+        <li><span class="parameter">overhangClimb</span>
+            <span class="types"><span class="type">bool</span></span>
+         Enables overhang climbing feature. Currently does not work.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "slideExtended"></a>
+    <strong>slideExtended</strong>
+    </dt>
+    <dd>
+    Extended slide mechanics.
+
+
+
+    <ul>
+        <li><span class="parameter">slideExtended</span>
+            <span class="types"><span class="type">bool</span></span>
+         If enabled, player will be able to change slide direction with controls. Currently does not work.
         </li>
     </ul>
 
@@ -802,8 +854,8 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "mesh"></a>
-    <strong>mesh</strong>
+    <a name = "rootMesh"></a>
+    <strong>rootMesh</strong>
     </dt>
     <dd>
     Root mesh to which hair object will attach to.
@@ -811,7 +863,7 @@
 
 
     <ul>
-        <li><span class="parameter">mesh</span>
+        <li><span class="parameter">rootMesh</span>
             <span class="types"><span class="type">int</span></span>
          Index of a root mesh to which hair will attach. Root mesh may be different for each hair object.
         </li>
@@ -1191,7 +1243,7 @@
 
     <ul>
         <li><span class="parameter">flashRange</span>
-            <span class="types"><a class="type" href="../3 primitive classes/Color.html#">Color</a></span>
+            <span class="types"><span class="type">int</span></span>
          specifies the range of the gunflash.
         </li>
     </ul>

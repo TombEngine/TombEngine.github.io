@@ -86,6 +86,8 @@
   <li>    <a href="../4 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
   <li>    <a href="../4 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
   <li>    <a href="../4 enums/Flow.ItemAction.html">Flow.ItemAction</a></li>
+  <li>    <a href="../4 enums/Flow.LaraType.html">Flow.LaraType</a></li>
+  <li>    <a href="../4 enums/Flow.WeatherType.html">Flow.WeatherType</a></li>
   <li>    <a href="../4 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../4 enums/Input.AxisID.html">Input.AxisID</a></li>
   <li>    <a href="../4 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
@@ -106,7 +108,7 @@
 <h2>5 Lua utility modules</h2>
 <ul class="nowrap">
   <li>    <a href="../5 lua utility modules/CustomBar.html">CustomBar</a></li>
-  <li>    <a href="../5 lua utility modules/Diary.html">Diary</a></li>
+  <li>    <a href="../5 lua utility modules/CustomDiary.html">CustomDiary</a></li>
   <li>    <a href="../5 lua utility modules/EventSequence.html">EventSequence</a></li>
   <li>    <a href="../5 lua utility modules/Timer.html">Timer</a></li>
   <li>    <a href="../5 lua utility modules/Type.html">Type</a></li>
@@ -118,16 +120,22 @@
 
 <h1>Enum <code>Sound.SoundTrackType</code></h1>
 <p>Constants for the type of the audio tracks.</p>
-<p>
-
-</p>
+<p> To be used with sound track functions, such as <a href="../1 modules/Sound.html#PlayAudioTrack">Sound.PlayAudioTrack</a> and <a href="../1 modules/Sound.html#StopAudioTrack">Sound.StopAudioTrack</a>.</p>
 
 
-<h2><a href="#Tables">Tables</a></h2>
+<h2><a href="#Members">Members</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#Sound.SoundTrackType">Sound.SoundTrackType</a></td>
-	<td class="summary">Table of Sound.SoundTrackType constants.</td>
+	<td class="name" ><a href="#ONESHOT">ONESHOT</a></td>
+	<td class="summary">Used for one-time music tracks.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#LOOPED">LOOPED</a></td>
+	<td class="summary">Used for looped ambience or music.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#VOICE">VOICE</a></td>
+	<td class="summary">Used for dialogs.</td>
 	</tr>
 </table>
 
@@ -135,26 +143,45 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+    <h2 class="section-header "><a name="Members"></a>Members</h2>
 
     <dl class="function">
     <dt>
-    <a name = "Sound.SoundTrackType"></a>
-    <strong>Sound.SoundTrackType</strong>
+    <a name = "ONESHOT"></a>
+    <strong>ONESHOT</strong>
     </dt>
     <dd>
-
-<p>Table of Sound.SoundTrackType constants. </p>
-
-<p>To be used with sound track functions, such as <a href="../1 modules/Sound.html#PlayAudioTrack">Sound.PlayAudioTrack</a> and <a href="../1 modules/Sound.html#StopAudioTrack">Sound.StopAudioTrack</a>.</p>
-
-<ul>
-    <li><code>ONESHOT</code> - Used for one-time music tracks.</li>
-    <li><code>LOOPED</code> - Used for looped ambience or music.</li>
-    <li><code>VOICE</code> - Used for dialogs. Also supports subtitles, set by <a href="../1 modules/Sound.html#GetCurrentSubtitle">Sound.GetCurrentSubtitle</a> function.</li>
-</ul>
+    Used for one-time music tracks.
 
 
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LOOPED"></a>
+    <strong>LOOPED</strong>
+    </dt>
+    <dd>
+    Used for looped ambience or music.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "VOICE"></a>
+    <strong>VOICE</strong>
+    </dt>
+    <dd>
+    Used for dialogs.  Also supports subtitles, set by <a href="../1 modules/Sound.html#GetCurrentSubtitle">Sound.GetCurrentSubtitle</a> function.
 
 
 

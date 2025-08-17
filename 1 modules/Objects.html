@@ -86,6 +86,8 @@
   <li>    <a href="../4 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
   <li>    <a href="../4 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
   <li>    <a href="../4 enums/Flow.ItemAction.html">Flow.ItemAction</a></li>
+  <li>    <a href="../4 enums/Flow.LaraType.html">Flow.LaraType</a></li>
+  <li>    <a href="../4 enums/Flow.WeatherType.html">Flow.WeatherType</a></li>
   <li>    <a href="../4 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../4 enums/Input.AxisID.html">Input.AxisID</a></li>
   <li>    <a href="../4 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
@@ -106,7 +108,7 @@
 <h2>5 Lua utility modules</h2>
 <ul class="nowrap">
   <li>    <a href="../5 lua utility modules/CustomBar.html">CustomBar</a></li>
-  <li>    <a href="../5 lua utility modules/Diary.html">Diary</a></li>
+  <li>    <a href="../5 lua utility modules/CustomDiary.html">CustomDiary</a></li>
   <li>    <a href="../5 lua utility modules/EventSequence.html">EventSequence</a></li>
   <li>    <a href="../5 lua utility modules/Timer.html">Timer</a></li>
   <li>    <a href="../5 lua utility modules/Type.html">Type</a></li>
@@ -172,6 +174,13 @@
 	<td class="summary">Check if a given script name is in use by any object type.</td>
 	</tr>
 </table>
+<h2><a href="#Special_objects">Special objects </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" ><a href="#Lara">Lara</a></td>
+	<td class="summary">An <a href="../2 classes/Objects.LaraObject.html#">Objects.LaraObject</a> entry representing Lara herself.</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
@@ -221,7 +230,7 @@
     <ul>
         <li><span class="parameter">slot</span>
             <span class="types"><a class="type" href="../4 enums/Objects.ObjID.html#">ObjID</a></span>
-         The unique slot of the moveable, e.g. <code>Objects.ObjID.ANIMATING1</code>.
+         The unique slot of the moveable, e.g. <a href="../4 enums/Objects.ObjID.html#ANIMATING1">Objects.ObjID.ANIMATING1</a>.
         </li>
     </ul>
 
@@ -511,6 +520,32 @@
            <span class="types"><span class="type">bool</span></span>
         True if name is in use and an object with a given name is present, false if not.
     </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Special_objects"></a>Special objects </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Lara"></a>
+    <strong>Lara</strong>
+    </dt>
+    <dd>
+    An <a href="../2 classes/Objects.LaraObject.html#">Objects.LaraObject</a> entry representing Lara herself.  Can be used to quickly access player data, without getting Lara moveable by name.
+ Can be also used with any methods of <a href="../2 classes/Objects.Moveable.html#">Objects.Moveable</a>.
+
+
+
+    <ul>
+        <li><span class="parameter">Lara</span>
+            <span class="types"><a class="type" href="../2 classes/Objects.LaraObject.html#">LaraObject</a></span>
+         A global Lara object.
+        </li>
+    </ul>
+
 
 
 

@@ -86,6 +86,8 @@
   <li>    <a href="../4 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
   <li>    <a href="../4 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
   <li>    <a href="../4 enums/Flow.ItemAction.html">Flow.ItemAction</a></li>
+  <li>    <a href="../4 enums/Flow.LaraType.html">Flow.LaraType</a></li>
+  <li>    <a href="../4 enums/Flow.WeatherType.html">Flow.WeatherType</a></li>
   <li>    <a href="../4 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../4 enums/Input.AxisID.html">Input.AxisID</a></li>
   <li>    <a href="../4 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
@@ -106,7 +108,7 @@
 <h2>5 Lua utility modules</h2>
 <ul class="nowrap">
   <li>    <a href="../5 lua utility modules/CustomBar.html">CustomBar</a></li>
-  <li>    <a href="../5 lua utility modules/Diary.html">Diary</a></li>
+  <li>    <a href="../5 lua utility modules/CustomDiary.html">CustomDiary</a></li>
   <li>    <a href="../5 lua utility modules/EventSequence.html">EventSequence</a></li>
   <li>    <a href="../5 lua utility modules/Timer.html">Timer</a></li>
   <li>    <a href="../5 lua utility modules/Type.html">Type</a></li>
@@ -143,10 +145,8 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" ><a href="#Color">Color(R, G, B)</a></td>
-	<td class="summary">
-
-</td>
+	<td class="name" ><a href="#Color">Color(R, G, B, [A])</a></td>
+	<td class="summary">Create a Color object.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#__tostring">__tostring(color)</a></td>
@@ -229,12 +229,10 @@
     <dl class="function">
     <dt>
     <a name = "Color"></a>
-    <strong>Color(R, G, B)</strong>
+    <strong>Color(R, G, B, [A])</strong>
     </dt>
     <dd>
-
-
-
+    Create a Color object.
 
 
 
@@ -251,6 +249,11 @@
         <li><span class="parameter">B</span>
             <span class="types"><span class="type">int</span></span>
          Blue component.
+        </li>
+        <li><span class="parameter">A</span>
+            <span class="types"><span class="type">int</span></span>
+         Alpha (transparency) component.
+         <em>Default: 255.</em>
         </li>
     </ul>
 
