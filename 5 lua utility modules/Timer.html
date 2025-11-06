@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.9 Lua API</title>
+    <title>TombEngine 1.10 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -121,7 +121,7 @@
 <h1>Lua utility module <code>Timer</code></h1>
 <p><style>table.function_list td.name {min-width: 395px;} .section-header.has-description {border-top: 1px solid #ccc; padding-top: 1em;}</style>
  Basic timer that performs countdown.</p>
-<p> When it expires, you can set a specific <em>LevelFuncs</em> function to be activated.<br>Timers are updated automatically at every frame before OnLoop event.<br>To use Timer inside scripts you need to call the module:</p>
+<p> When it expires, you can set a specific <em>LevelFuncs</em> function to be activated. Timers are updated automatically at every frame before OnLoop event. To use Timer inside scripts you need to call the module:</p>
 
 <pre>
 <span class="keyword">local</span> Timer = <span class="global">require</span>(<span class="string">"Engine.Timer"</span>)
@@ -222,7 +222,7 @@
 	<td class="summary">Get the remaining time of a timer in seconds.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Timer:GetRemainingTimeFormatted">Timer:GetRemainingTimeFormatted(timerFormat)</a></td>
+	<td class="name" ><a href="#Timer:GetRemainingTimeFormatted">Timer:GetRemainingTimeFormatted([timerFormat])</a></td>
 	<td class="summary">Get the formatted remaining time of a timer.</td>
 	</tr>
 	<tr>
@@ -242,7 +242,7 @@
 	<td class="summary">Get the total time of a timer in seconds.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#Timer:GetTotalTimeFormatted">Timer:GetTotalTimeFormatted(timerFormat)</a></td>
+	<td class="name" ><a href="#Timer:GetTotalTimeFormatted">Timer:GetTotalTimeFormatted([timerFormat])</a></td>
 	<td class="summary">Get the formatted total time of a timer.</td>
 	</tr>
 	<tr>
@@ -279,7 +279,7 @@
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Timer:SetPausedColor">Timer:SetPausedColor([color])</a></td>
-	<td class="summary">Set the paused color of the displayed timer when it is active.</td>
+	<td class="summary">Set the paused color of the displayed timer when it is in pause.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Timer:SetUnpausedColor">Timer:SetUnpausedColor([color])</a></td>
@@ -366,7 +366,7 @@
 </span>Timer.Create(<span class="string">"my_timer"</span>, <span class="number">6.1</span>)
 
 <span class="comment">-- Example 2 Timer that executes a function when it expires:
-</span><span class="keyword">local</span> TimeFormat = {minutes = <span class="keyword">true</span>, seconds = <span class="keyword">true</span>, deciseconds = <span class="keyword">true</span>}
+</span><span class="keyword">local</span> TimerFormat = {minutes = <span class="keyword">true</span>, seconds = <span class="keyword">true</span>, deciseconds = <span class="keyword">true</span>}
 LevelFuncs.FinishTimer = <span class="keyword">function</span>()
    TEN.Util.PrintLog(<span class="string">"Timer expired"</span>, TEN.Util.LogLevel.INFO)
 <span class="keyword">end</span>
@@ -661,7 +661,7 @@ Timer.Create(<span class="string">"my_timer"</span>, <span class="number">6.1</s
 </dd>
     <dt>
     <a name = "Timer:GetRemainingTimeFormatted"></a>
-    <strong>Timer:GetRemainingTimeFormatted(timerFormat)</strong>
+    <strong>Timer:GetRemainingTimeFormatted([timerFormat])</strong>
     </dt>
     <dd>
     Get the formatted remaining time of a timer.
@@ -672,7 +672,8 @@ Timer.Create(<span class="string">"my_timer"</span>, <span class="number">6.1</s
     <ul>
         <li><span class="parameter">timerFormat</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a> or <span class="type">bool</span></span>
-         Sets the remaining time display. See <a href="#timerFormat">Timer format</a>.
+         Sets the remaining time display. See <a href="#timerFormat">Timer format</a>.<br>
+         <em>Default: {minutes = true&#44; seconds = true&#44; deciseconds = true}.</em>
         </li>
     </ul>
 
@@ -687,11 +688,19 @@ Timer.Create(<span class="string">"my_timer"</span>, <span class="number">6.1</s
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="comment">-- Example:
+        <pre class="example"><span class="comment">-- Example 1: Display remaining time in secs.decisecs
 </span><span class="keyword">local</span> TimerFormat = {seconds = <span class="keyword">true</span>, deciseconds = <span class="keyword">true</span>}
 <span class="keyword">if</span> Timer.IfExists(<span class="string">"my_timer"</span>) <span class="keyword">then</span>
    <span class="keyword">local</span> pos = TEN.Vec2(TEN.Util.PercentToScreen(<span class="number">50</span>, <span class="number">10</span>))
    <span class="keyword">local</span> timer = Timer.Get(<span class="string">"my_timer"</span>):GetRemainingTimeFormatted(TimerFormat)
+   <span class="keyword">local</span> str = TEN.Strings.DisplayString(<span class="string">"Timer: "</span> .. timer, pos)
+   TEN.Strings.ShowString(str, <span class="number">1</span>)
+<span class="keyword">end</span>
+
+<span class="comment">-- Example 2: Display remaining with default format (mins:secs.decisecs)
+</span><span class="keyword">if</span> Timer.IfExists(<span class="string">"my_timer"</span>) <span class="keyword">then</span>
+   <span class="keyword">local</span> pos = TEN.Vec2(TEN.Util.PercentToScreen(<span class="number">50</span>, <span class="number">10</span>))
+   <span class="keyword">local</span> timer = Timer.Get(<span class="string">"my_timer"</span>):GetRemainingTimeFormatted()
    <span class="keyword">local</span> str = TEN.Strings.DisplayString(<span class="string">"Timer: "</span> .. timer, pos)
    TEN.Strings.ShowString(str, <span class="number">1</span>)
 <span class="keyword">end</span></pre>
@@ -733,7 +742,7 @@ Timer.Create(<span class="string">"my_timer"</span>, <span class="number">6.1</s
     <strong>Timer:IfRemainingTimeIs(operator, seconds)</strong>
     </dt>
     <dd>
-    Compares the remaining time with a value (in seconds).  </p>
+    Compares the remaining time with a value (in seconds). </p>
 
 <p> It's recommended to use the <em>IfRemainingTimeIs()</em> method to have error-free comparisons
 
@@ -855,7 +864,7 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
 </dd>
     <dt>
     <a name = "Timer:GetTotalTimeFormatted"></a>
-    <strong>Timer:GetTotalTimeFormatted(timerFormat)</strong>
+    <strong>Timer:GetTotalTimeFormatted([timerFormat])</strong>
     </dt>
     <dd>
     Get the formatted total time of a timer.  This is the amount of time the timer will start with, as well as when starting a new loop
@@ -866,7 +875,8 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
     <ul>
         <li><span class="parameter">timerFormat</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a> or <span class="type">bool</span></span>
-         Sets the remaining time display. See <a href="#timerFormat">Timer format</a>.
+         Sets the remaining time display. See <a href="#timerFormat">Timer format</a>.<br>
+         <em>Default: {minutes = true&#44; seconds = true&#44; deciseconds = true}.</em>
         </li>
     </ul>
 
@@ -881,11 +891,18 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="comment">-- Example:
+        <pre class="example"><span class="comment">-- Example 1: Display total time in secs.decisecs
 </span><span class="keyword">local</span> TimerFormat = {minutes = <span class="keyword">false</span>, seconds = <span class="keyword">true</span>, deciseconds = <span class="keyword">true</span>}
 <span class="keyword">if</span> Timer.IfExists(<span class="string">"my_timer"</span>) <span class="keyword">then</span>
    <span class="keyword">local</span> pos = TEN.Vec2(TEN.Util.PercentToScreen(<span class="number">50</span>, <span class="number">10</span>))
    <span class="keyword">local</span> totalTime = Timer.Get(<span class="string">"my_timer"</span>):GetTotalTimeFormatted(TimerFormat)
+   <span class="keyword">local</span> str = TEN.Strings.DisplayString(<span class="string">"Total time is: "</span> .. totalTime, pos)
+<span class="keyword">end</span>
+
+<span class="comment">-- Example 2: Display total time with default format (mins:secs.decisecs)
+</span><span class="keyword">if</span> Timer.IfExists(<span class="string">"my_timer"</span>) <span class="keyword">then</span>
+   <span class="keyword">local</span> pos = TEN.Vec2(TEN.Util.PercentToScreen(<span class="number">50</span>, <span class="number">10</span>))
+   <span class="keyword">local</span> totalTime = Timer.Get(<span class="string">"my_timer"</span>):GetTotalTimeFormatted()
    <span class="keyword">local</span> str = TEN.Strings.DisplayString(<span class="string">"Total time is: "</span> .. totalTime, pos)
 <span class="keyword">end</span></pre>
     </ul>
@@ -1197,7 +1214,7 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
     <strong>Timer:SetPausedColor([color])</strong>
     </dt>
     <dd>
-    Set the paused color of the displayed timer when it is active.
+    Set the paused color of the displayed timer when it is in pause.
 
 
 
@@ -1267,7 +1284,7 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
     <strong>Timer:SetTextOption([optionsTable])</strong>
     </dt>
     <dd>
-    Set text options for a timer.
+    Set text options for a timer.  Note: the <em>VERTICAL_CENTER</em> option is always added.
 
 
 
@@ -1276,7 +1293,7 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
         <li><span class="parameter">optionsTable</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
          Table containing timer's new text options. See <a href="../4 enums/Strings.DisplayStringOption.html#">Strings.DisplayStringOption</a><br>
-         <em>Default: {TEN.Strings.DisplayStringOption.CENTER&#44; TEN.Strings.DisplayStringOption.SHADOW}.</em>
+         <em>Default: <br>{<br>TEN.Strings.DisplayStringOption.CENTER&#44;<br> TEN.Strings.DisplayStringOption.SHADOW&#44;<br> TEN.Strings.DisplayStringOption.VERTICAL_CENTER<br>}.</em>
         </li>
     </ul>
 
@@ -1292,11 +1309,11 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
 <span class="keyword">end</span>
 
 <span class="comment">-- Example 2: Set default value + BLINK effect
-</span>newOptins = {TEN.Strings.DisplayStringOption.CENTER,
+</span>newOptions = {TEN.Strings.DisplayStringOption.CENTER,
             TEN.Strings.DisplayStringOption.SHADOW,
             TEN.Strings.DisplayStringOption.BLINK}
 <span class="keyword">if</span> Timer.IfExists(<span class="string">"my_timer"</span>) <span class="keyword">then</span>
-   Timer.Get(<span class="string">"my_timer"</span>):SetTextOption(newOptins)
+   Timer.Get(<span class="string">"my_timer"</span>):SetTextOption(newOptions)
 <span class="keyword">end</span>
 
 <span class="comment">-- Example 3: Set text option to left alignment

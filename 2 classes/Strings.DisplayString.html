@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.9 Lua API</title>
+    <title>TombEngine 1.10 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -179,6 +179,10 @@ when you need to use screen-space coordinates.</p>
 	<tr>
 	<td class="name" ><a href="#DisplayString:SetFlags">DisplayString:SetFlags(table)</a></td>
 	<td class="summary">Set the display string's flags.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#DisplayString:GetFlags">DisplayString:GetFlags()</a></td>
+	<td class="summary">Get the display string's flags.</td>
 	</tr>
 </table>
 
@@ -481,7 +485,7 @@ No word wrapping will occur if this parameter is default or omitted.
     <ul>
         <li><span class="parameter">table</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
-         The new table with display flags options.
+         The table with <a href="../4 enums/Strings.DisplayStringOption.html#">Strings.DisplayStringOption</a> flags.
         </li>
     </ul>
 
@@ -499,6 +503,28 @@ varDisplayString:SetFlags({ TEN.Strings.DisplayStringOption.SHADOW, TEN.Strings.
 <span class="comment">-- When passing a table to a function, you can omit the parentheses
 </span>varDisplayString:SetFlags{ TEN.Strings.DisplayStringOption.CENTER }</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "DisplayString:GetFlags"></a>
+    <strong>DisplayString:GetFlags()</strong>
+    </dt>
+    <dd>
+    Get the display string's flags.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        A table of booleans representing <a href="../4 enums/Strings.DisplayStringOption.html#">Strings.DisplayStringOption</a> flags, indexed from 1:<br>1: TEN.Strings.DisplayStringOption.CENTER<br>2: TEN.Strings.DisplayStringOption.SHADOW<br>3: TEN.Strings.DisplayStringOption.RIGHT<br>4: TEN.Strings.DisplayStringOption.BLINK<br>5: TEN.Strings.DisplayStringOption.VERTICAL_CENTER<br>
+ If a boolean value is true, the corresponding flag is assigned to the DisplayString, otherwise it is not assigned.
+    </ol>
+
+
+
 
 </dd>
 </dl>

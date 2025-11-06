@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.9 Lua API</title>
+    <title>TombEngine 1.10 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -214,6 +214,13 @@
 	<tr>
 	<td class="name" ><a href="#flicker">flicker</a></td>
 	<td class="summary">Toggle flicker effect.</td>
+	</tr>
+</table>
+<h2><a href="#Gameplay">Gameplay </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" ><a href="#targetObjectOcclusion">targetObjectOcclusion</a></td>
+	<td class="summary">Enable target occlusion by moveables and static meshes.</td>
 	</tr>
 </table>
 <h2><a href="#Graphics">Graphics </a></h2>
@@ -808,6 +815,34 @@
         <li><span class="parameter">flicker</span>
             <span class="types"><span class="type">bool</span></span>
          Light and lensflare flickering. When turned off, flare light will be constant.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Gameplay"></a>Gameplay </h2>
+
+          <div class="section-description">
+           These settings are used to enable or disable certain gameplay features.
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "targetObjectOcclusion"></a>
+    <strong>targetObjectOcclusion</strong>
+    </dt>
+    <dd>
+    Enable target occlusion by moveables and static meshes.
+
+
+
+    <ul>
+        <li><span class="parameter">targetObjectOcclusion</span>
+            <span class="types"><span class="type">bool</span></span>
+         If enabled, player won't be able to target enemies through moveables and static meshes.
         </li>
     </ul>
 

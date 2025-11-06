@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.9 Lua API</title>
+    <title>TombEngine 1.10 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -183,7 +183,7 @@
 	<td class="summary">Get the player's weapon type.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#LaraObject:SetWeaponType">LaraObject:SetWeaponType(weaponType, activate)</a></td>
+	<td class="name" ><a href="#LaraObject:SetWeaponType">LaraObject:SetWeaponType(weaponType, [activate])</a></td>
 	<td class="summary">Set the player's weapon type.</td>
 	</tr>
 	<tr>
@@ -565,7 +565,7 @@
 </dd>
     <dt>
     <a name = "LaraObject:SetWeaponType"></a>
-    <strong>LaraObject:SetWeaponType(weaponType, activate)</strong>
+    <strong>LaraObject:SetWeaponType(weaponType, [activate])</strong>
     </dt>
     <dd>
     Set the player's weapon type.
@@ -581,6 +581,7 @@
         <li><span class="parameter">activate</span>
             <span class="types"><span class="type">bool</span></span>
          If <code>true</code>, also draw the weapons or set torch lit. If <code>false</code>, keep weapons holstered or leave torch unlit.
+         <em>Default: false.</em>
         </li>
     </ul>
 

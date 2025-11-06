@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.9 Lua API</title>
+    <title>TombEngine 1.10 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -235,11 +235,11 @@
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Moveable:GetLocationAI">Moveable:GetLocationAI()</a></td>
-	<td class="summary">Get the location value stored in the Enemy AI.</td>
+	<td class="summary">Get the OCB of the AI object that the enemy is currently trying to reach.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Moveable:SetLocationAI">Moveable:SetLocationAI(value)</a></td>
-	<td class="summary">Updates the location in the enemy AI with the given value.</td>
+	<td class="summary">Updates the AI object OCB that the enemy should try to reach.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Moveable:GetColor">Moveable:GetColor()</a></td>
@@ -390,6 +390,10 @@
 	<td class="summary">Set the item's collision.</td>
 	</tr>
 	<tr>
+	<td class="name" ><a href="#Moveable:GetVisible">Moveable:GetVisible()</a></td>
+	<td class="summary">Get the item's visibility state.</td>
+	</tr>
+	<tr>
 	<td class="name" ><a href="#Moveable:SetVisible">Moveable:SetVisible(visible)</a></td>
 	<td class="summary">Set the item's visibility.</td>
 	</tr>
@@ -408,6 +412,10 @@
 	<tr>
 	<td class="name" ><a href="#Moveable:AnimFromObject">Moveable:AnimFromObject(objectID, animNumber, stateID)</a></td>
 	<td class="summary">Borrow animation from an object.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#Moveable:ShowInteractionHighlight">Moveable:ShowInteractionHighlight()</a></td>
+	<td class="summary">Show interaction highlight for the object.</td>
 	</tr>
 </table>
 
@@ -1150,7 +1158,11 @@ baddy:SetOnCollidedWithRoom(LevelFuncs.roomCollided)</pre>
     <strong>Moveable:GetLocationAI()</strong>
     </dt>
     <dd>
-    Get the location value stored in the Enemy AI.
+    Get the OCB of the AI object that the enemy is currently trying to reach.
+ Used exclusively by:
+ - SOPHIA<em>LEIGH
+ - VON</em>CROY
+ - The GUIDE, only if he has ItemFlags[2] bit 1 set
 
 
 
@@ -1171,7 +1183,11 @@ baddy:SetOnCollidedWithRoom(LevelFuncs.roomCollided)</pre>
     <strong>Moveable:SetLocationAI(value)</strong>
     </dt>
     <dd>
-    Updates the location in the enemy AI with the given value.
+    Updates the AI object OCB that the enemy should try to reach.
+ Used exclusively by:
+ - SOPHIA<em>LEIGH
+ - VON</em>CROY
+ - The GUIDE, only if he has ItemFlags[2] bit 1 set (otherwise, he ignore it and simply look for the next AI object OCB until he reaches the one set by the last call to flipeffect 30)
 
 
 
@@ -2051,6 +2067,27 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
 
 </dd>
     <dt>
+    <a name = "Moveable:GetVisible"></a>
+    <strong>Moveable:GetVisible()</strong>
+    </dt>
+    <dd>
+    Get the item's visibility state.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        Item's visibility state.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Moveable:SetVisible"></a>
     <strong>Moveable:SetVisible(visible)</strong>
     </dt>
@@ -2162,6 +2199,21 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
          State from object.
         </li>
     </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Moveable:ShowInteractionHighlight"></a>
+    <strong>Moveable:ShowInteractionHighlight()</strong>
+    </dt>
+    <dd>
+    Show interaction highlight for the object.  Can be useful if you have scripted an interaction with it.
+
+
+
 
 
 
