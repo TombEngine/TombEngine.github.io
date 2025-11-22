@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.10 Lua API</title>
+    <title>TombEngine 1.10.1 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -407,7 +407,7 @@
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Moveable:AttachObjCamera">Moveable:AttachObjCamera(mesh, target, targetMesh)</a></td>
-	<td class="summary">Attach camera to a moveable.</td>
+	<td class="summary">Attach camera to the moveable's current position, and target another moveable.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Moveable:AnimFromObject">Moveable:AnimFromObject(objectID, animNumber, stateID)</a></td>
@@ -1879,7 +1879,7 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
         </li>
         <li><span class="parameter">swapIndex</span>
             <span class="types"><span class="type">int</span></span>
-         Index of a mesh from meshswap slot to use.
+         Index of a mesh from meshswap slot to use. In WadTool, you have to set vertex weights for this mesh according to original mesh index to avoid rendering issues.
          <em>Optional.</em>
         </li>
     </ul>
@@ -2150,7 +2150,9 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
     <strong>Moveable:AttachObjCamera(mesh, target, targetMesh)</strong>
     </dt>
     <dd>
-    Attach camera to a moveable.
+    Attach camera to the moveable's current position, and target another moveable.
+ The camera's position and target position will be maintained until this function is called again.
+ Use <a href="../1 modules/View.html#ResetObjCamera">View.ResetObjCamera</a> to restore the regular camera.
 
 
 
@@ -2158,15 +2160,15 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
     <ul>
         <li><span class="parameter">mesh</span>
             <span class="types"><span class="type">int</span></span>
-         Mesh of a moveable to use as a camera position.
+         Mesh of the moveable to which the camera will be attached.
         </li>
         <li><span class="parameter">target</span>
             <span class="types"><a class="type" href="../2 classes/Objects.Moveable.html#">Moveable</a></span>
-         Target moveable to attach camera to.
+         Moveable to target.
         </li>
         <li><span class="parameter">targetMesh</span>
             <span class="types"><span class="type">int</span></span>
-         Mesh of a target moveable to use as a camera target.
+         Mesh of the moveable to target.
         </li>
     </ul>
 
