@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>TombEngine 1.11 Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>&nbsp;TombEngine</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>1 Special Tables</h2>
+<ul class="nowrap">
+  <li>    <a href="../1 special tables/GameVars.html">GameVars</a></li>
+  <li>    <a href="../1 special tables/LevelFuncs.html">LevelFuncs</a></li>
+  <li>    <a href="../1 special tables/LevelVars.html">LevelVars</a></li>
+</ul>
+<h2>2 Modules</h2>
+<ul class="nowrap">
+  <li>    <a href="../2 modules/Effects.html">Effects</a></li>
+  <li>    <a href="../2 modules/Flow.html">Flow</a></li>
+  <li>    <a href="../2 modules/Input.html">Input</a></li>
+  <li>    <a href="../2 modules/Inventory.html">Inventory</a></li>
+  <li>    <a href="../2 modules/Logic.html">Logic</a></li>
+  <li>    <a href="../2 modules/Objects.html">Objects</a></li>
+  <li>    <a href="../2 modules/Sound.html">Sound</a></li>
+  <li>    <a href="../2 modules/Strings.html">Strings</a></li>
+  <li>    <here>Util</here></li>
+  <li>    <a href="../2 modules/View.html">View</a></li>
+</ul>
+<h2>3 Classes</h2>
+<ul class="nowrap">
+  <li>    <a href="../3 classes/Collision.Ray.html">Collision.Ray</a></li>
+  <li>    <a href="../3 classes/Collision.Probe.html">Collision.Probe</a></li>
+  <li>    <a href="../3 classes/Flow.Level.html">Flow.Level</a></li>
+  <li>    <a href="../3 classes/Flow.Settings.html">Flow.Settings</a></li>
+  <li>    <a href="../3 classes/Flow.Statistics.html">Flow.Statistics</a></li>
+  <li>    <a href="../3 classes/Objects.AIObject.html">Objects.AIObject</a></li>
+  <li>    <a href="../3 classes/Objects.Camera.html">Objects.Camera</a></li>
+  <li>    <a href="../3 classes/Objects.LaraObject.html">Objects.LaraObject</a></li>
+  <li>    <a href="../3 classes/Objects.Moveable.html">Objects.Moveable</a></li>
+  <li>    <a href="../3 classes/Objects.Room.html">Objects.Room</a></li>
+  <li>    <a href="../3 classes/Objects.Sink.html">Objects.Sink</a></li>
+  <li>    <a href="../3 classes/Objects.SoundSource.html">Objects.SoundSource</a></li>
+  <li>    <a href="../3 classes/Objects.Static.html">Objects.Static</a></li>
+  <li>    <a href="../3 classes/Objects.Volume.html">Objects.Volume</a></li>
+  <li>    <a href="../3 classes/Strings.DisplayString.html">Strings.DisplayString</a></li>
+  <li>    <a href="../3 classes/View.DisplayItem.html">View.DisplayItem</a></li>
+  <li>    <a href="../3 classes/View.DisplaySprite.html">View.DisplaySprite</a></li>
+</ul>
+<h2>4 Primitive Classes</h2>
+<ul class="nowrap">
+  <li>    <a href="../4 primitive classes/Flow.Fog.html">Flow.Fog</a></li>
+  <li>    <a href="../4 primitive classes/Flow.Horizon.html">Flow.Horizon</a></li>
+  <li>    <a href="../4 primitive classes/Flow.InventoryItem.html">Flow.InventoryItem</a></li>
+  <li>    <a href="../4 primitive classes/Flow.LensFlare.html">Flow.LensFlare</a></li>
+  <li>    <a href="../4 primitive classes/Flow.SkyLayer.html">Flow.SkyLayer</a></li>
+  <li>    <a href="../4 primitive classes/Flow.Starfield.html">Flow.Starfield</a></li>
+  <li>    <a href="../4 primitive classes/Color.html">Color</a></li>
+  <li>    <a href="../4 primitive classes/Rotation.html">Rotation</a></li>
+  <li>    <a href="../4 primitive classes/Time.html">Time</a></li>
+  <li>    <a href="../4 primitive classes/Vec2.html">Vec2</a></li>
+  <li>    <a href="../4 primitive classes/Vec3.html">Vec3</a></li>
+  <li>    <a href="../4 primitive classes/View.DisplayAnchors.html">View.DisplayAnchors</a></li>
+</ul>
+<h2>5 Enums</h2>
+<ul class="nowrap">
+  <li>    <a href="../5 enums/Collision.IntersectionType.html">Collision.IntersectionType</a></li>
+  <li>    <a href="../5 enums/Collision.MaterialType.html">Collision.MaterialType</a></li>
+  <li>    <a href="../5 enums/Effects.BlendID.html">Effects.BlendID</a></li>
+  <li>    <a href="../5 enums/Effects.EffectID.html">Effects.EffectID</a></li>
+  <li>    <a href="../5 enums/Effects.StreamerFeatherMode.html">Effects.StreamerFeatherMode</a></li>
+  <li>    <a href="../5 enums/Effects.ParticleAnimationType.html">Effects.ParticleAnimationType</a></li>
+  <li>    <a href="../5 enums/Flow.ErrorMode.html">Flow.ErrorMode</a></li>
+  <li>    <a href="../5 enums/Flow.FreezeMode.html">Flow.FreezeMode</a></li>
+  <li>    <a href="../5 enums/Flow.GameStatus.html">Flow.GameStatus</a></li>
+  <li>    <a href="../5 enums/Flow.ItemAction.html">Flow.ItemAction</a></li>
+  <li>    <a href="../5 enums/Flow.LaraType.html">Flow.LaraType</a></li>
+  <li>    <a href="../5 enums/Flow.PathfindingMode.html">Flow.PathfindingMode</a></li>
+  <li>    <a href="../5 enums/Flow.WeatherType.html">Flow.WeatherType</a></li>
+  <li>    <a href="../5 enums/Input.ActionID.html">Input.ActionID</a></li>
+  <li>    <a href="../5 enums/Input.AxisID.html">Input.AxisID</a></li>
+  <li>    <a href="../5 enums/Logic.CallbackPoint.html">Logic.CallbackPoint</a></li>
+  <li>    <a href="../5 enums/Logic.EventType.html">Logic.EventType</a></li>
+  <li>    <a href="../5 enums/Logic.EndReason.html">Logic.EndReason</a></li>
+  <li>    <a href="../5 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
+  <li>    <a href="../5 enums/Objects.HandStatus.html">Objects.HandStatus</a></li>
+  <li>    <a href="../5 enums/Objects.WaterStatus.html">Objects.WaterStatus</a></li>
+  <li>    <a href="../5 enums/Objects.WeaponMode.html">Objects.WeaponMode</a></li>
+  <li>    <a href="../5 enums/Objects.WeaponType.html">Objects.WeaponType</a></li>
+  <li>    <a href="../5 enums/Objects.InteractionType.html">Objects.InteractionType</a></li>
+  <li>    <a href="../5 enums/Objects.MoveableStatus.html">Objects.MoveableStatus</a></li>
+  <li>    <a href="../5 enums/Objects.ObjID.html">Objects.ObjID</a></li>
+  <li>    <a href="../5 enums/Objects.RoomFlagID.html">Objects.RoomFlagID</a></li>
+  <li>    <a href="../5 enums/Objects.RoomReverb.html">Objects.RoomReverb</a></li>
+  <li>    <a href="../5 enums/Sound.SoundTrackType.html">Sound.SoundTrackType</a></li>
+  <li>    <a href="../5 enums/Strings.DisplayStringOption.html">Strings.DisplayStringOption</a></li>
+  <li>    <a href="../5 enums/Util.LogLevel.html">Util.LogLevel</a></li>
+  <li>    <a href="../5 enums/View.AlignMode.html">View.AlignMode</a></li>
+  <li>    <a href="../5 enums/View.CameraType.html">View.CameraType</a></li>
+  <li>    <a href="../5 enums/View.PostProcessMode.html">View.PostProcessMode</a></li>
+  <li>    <a href="../5 enums/View.ScaleMode.html">View.ScaleMode</a></li>
+</ul>
+<h2>6 Lua utility modules</h2>
+<ul class="nowrap">
+  <li>    <a href="../6 lua utility modules/CustomBar.html">CustomBar</a></li>
+  <li>    <a href="../6 lua utility modules/CustomDiary.html">CustomDiary</a></li>
+  <li>    <a href="../6 lua utility modules/EventSequence.html">EventSequence</a></li>
+  <li>    <a href="../6 lua utility modules/Timer.html">Timer</a></li>
+  <li>    <a href="../6 lua utility modules/Type.html">Type</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Table <code>Util</code></h1>
+<p>Utility functions for various calculations.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" ><a href="#HasLineOfSight">HasLineOfSight(roomID, posA, posB)</a></td>
+	<td class="summary">Determine if there is a clear line of sight between two positions.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#CalculateHorizontalDistance">CalculateHorizontalDistance(posA, posB)</a></td>
+	<td class="summary">Calculate the horizontal distance between two positions.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#GetDisplayPosition">GetDisplayPosition(worldPos)</a></td>
+	<td class="summary">Get the projected display space position of a 3D world position.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PercentToScreen">PercentToScreen(x, y)</a></td>
+	<td class="summary">Translate a pair display position coordinates to pixel coordinates.<br>
+ To be used with <a href="../3 classes/Strings.DisplayString.html#">Strings.DisplayString</a> and <a href="../3 classes/Strings.DisplayString.html#DisplayString:SetPosition">Strings.DisplayString:SetPosition</a>.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PercentToScreen">PercentToScreen(percentPos)</a></td>
+	<td class="summary">Translate a Vec2 of display position coordinates to Vec2 pixel coordinates.<br>
+ To be used with <a href="../3 classes/Strings.DisplayString.html#">Strings.DisplayString</a> and <a href="../3 classes/Strings.DisplayString.html#DisplayString:SetPosition">Strings.DisplayString:SetPosition</a>.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#ScreenToPercent">ScreenToPercent(x, y)</a></td>
+	<td class="summary">Translate a pair of pixel coordinates to display position coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#ScreenToPercent">ScreenToPercent(screenPos)</a></td>
+	<td class="summary">Translate a Vec2 of pixel coordinates to Vec2 display position coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PickMoveableByDisplayPosition">PickMoveableByDisplayPosition(position)</a></td>
+	<td class="summary">Pick a moveable by the given display position.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PickStaticByDisplayPosition">PickStaticByDisplayPosition(position)</a></td>
+	<td class="summary">Pick a static mesh by the given display position.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PrintLog">PrintLog(Message, logLevel, [allowSpam])</a></td>
+	<td class="summary">Write messages within the Log file.<br>
+ For native Lua handling of errors, see <a href="https://www.lua.org/pil/8.3.html">Error management</a> and <a href="https://www.lua.org/manual/5.4/manual.html#pdf-debug.traceback">debug.traceback</a></td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#GetObjectIDString">GetObjectIDString(objectID)</a></td>
+	<td class="summary">Converts ObjectID to a string.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#OnUseItemCallBack">OnUseItemCallBack()</a></td>
+	<td class="summary">Runs the OnUseItem callback.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "HasLineOfSight"></a>
+    <strong>HasLineOfSight(roomID, posA, posB)</strong>
+    </dt>
+    <dd>
+    Determine if there is a clear line of sight between two positions.  Limited to room geometry. Objects are ignored.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">roomID</span>
+            <span class="types"><span class="type">float</span></span>
+         Room ID of the first position's room.
+        </li>
+        <li><span class="parameter">posA</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec3.html#">Vec3</a></span>
+         First position.
+        </li>
+        <li><span class="parameter">posB</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec3.html#">Vec3</a></span>
+         Second position.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if there is a line of sight, false if not.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> flamePlinthPos = flamePlinth:GetPosition() + Vec3(<span class="number">0</span>, flamePlinthHeight, <span class="number">0</span>);
+<span class="keyword">local</span> test = TEN.Util.HasLineOfSight(enemyHead:GetRoomNumber(), enemyHead:GetPosition(), flamePlinthPos);
+<span class="global">print</span>(<span class="global">tostring</span>(test))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "CalculateHorizontalDistance"></a>
+    <strong>CalculateHorizontalDistance(posA, posB)</strong>
+    </dt>
+    <dd>
+    Calculate the horizontal distance between two positions.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">posA</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec3.html#">Vec3</a></span>
+         First position.
+        </li>
+        <li><span class="parameter">posB</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec3.html#">Vec3</a></span>
+         Second position.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">float</span></span>
+        Horizontal distance between the two positions.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> dist = TEN.Util.CalculateHorizontalDistance(Lara:GetPosition(), enemyHead:GetPosition())</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "GetDisplayPosition"></a>
+    <strong>GetDisplayPosition(worldPos)</strong>
+    </dt>
+    <dd>
+    Get the projected display space position of a 3D world position.  Returns nil if the world position is behind the camera view.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">worldPos</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec3.html#">Vec3</a></span>
+         3D world position.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+        Projected display space position in percent.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example: Display a string at the player's position.
+</span><span class="keyword">local</span> displayPos = TEN.Util.GetDisplayPosition(Lara:GetPosition())
+<span class="keyword">local</span> str = TEN.Strings.DisplayString(<span class="string">'You are here!'</span>, displayPos)
+TEN.Strings.ShowString(str, <span class="number">4</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "PercentToScreen"></a>
+    <strong>PercentToScreen(x, y)</strong>
+    </dt>
+    <dd>
+    Translate a pair display position coordinates to pixel coordinates.<br>
+ To be used with <a href="../3 classes/Strings.DisplayString.html#">Strings.DisplayString</a> and <a href="../3 classes/Strings.DisplayString.html#DisplayString:SetPosition">Strings.DisplayString:SetPosition</a>.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">float</span></span>
+         X component of the display position.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">float</span></span>
+         Y component of the display position.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        x X coordinate in pixels.</li>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        y Y coordinate in pixels.</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example 1: Simple usage of PercentToScreen.
+</span><span class="keyword">local</span> screenX, screenY = TEN.Util.PercentToScreen(<span class="number">10</span>, <span class="number">10</span>)
+<span class="keyword">local</span> pos = TEN.Vec2(screenX, screenY)
+<span class="keyword">local</span> str1 = TEN.Strings.DisplayString(<span class="string">"Position at 10% X and 10% Y"</span>, pos)
+
+<span class="comment">-- Example 2: Using PercentToScreen with DisplayString:SetPosition.
+</span>str1:SetPosition(TEN.Util.PercentToScreen(<span class="number">50</span>, <span class="number">50</span>))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "PercentToScreen"></a>
+    <strong>PercentToScreen(percentPos)</strong>
+    </dt>
+    <dd>
+    Translate a Vec2 of display position coordinates to Vec2 pixel coordinates.<br>
+ To be used with <a href="../3 classes/Strings.DisplayString.html#">Strings.DisplayString</a> and <a href="../3 classes/Strings.DisplayString.html#DisplayString:SetPosition">Strings.DisplayString:SetPosition</a>.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">percentPos</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+         Display position to translate to pixel coordinates.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+        Pixel coordinates.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example: Translate a display position to pixel coordinates.
+</span><span class="keyword">local</span> percentPos = TEN.Vec2(<span class="number">25</span>, <span class="number">75</span>)
+<span class="keyword">local</span> screenPos = TEN.Util.PercentToScreen(percentPos)
+<span class="keyword">local</span> str1 = TEN.Strings.DisplayString(<span class="string">"Position at 25% X and 75% Y"</span>, screenPos)
+
+<span class="comment">-- Example 2: Using PercentToScreen with DisplayString:SetPosition.
+</span>str1:SetPosition(TEN.Util.PercentToScreen(TEN.Vec2(<span class="number">50</span>, <span class="number">50</span>)))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ScreenToPercent"></a>
+    <strong>ScreenToPercent(x, y)</strong>
+    </dt>
+    <dd>
+    Translate a pair of pixel coordinates to display position coordinates.
+ To be used with <a href="../3 classes/Strings.DisplayString.html#DisplayString:GetPosition">Strings.DisplayString:GetPosition</a>.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">int</span></span>
+         X pixel coordinate to translate to display position.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">int</span></span>
+         Y pixel coordinate to translate to display position.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">float</span></span>
+        x X component of display position.</li>
+        <li>
+           <span class="types"><span class="type">float</span></span>
+        y Y component of display position.</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example: Translate pixel coordinates to display position.
+</span><span class="keyword">local</span> percentX, percentY = TEN.Util.ScreenToPercent(<span class="number">800</span>, <span class="number">600</span>)
+
+<span class="comment">-- Example 2: Using ScreenToPercent with DisplayString:GetPosition.
+</span><span class="keyword">local</span> screenPos = str1:GetPosition()
+<span class="keyword">local</span> percentPos = TEN.Util.ScreenToPercent(screenPos.x, screenPos.y)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ScreenToPercent"></a>
+    <strong>ScreenToPercent(screenPos)</strong>
+    </dt>
+    <dd>
+    Translate a Vec2 of pixel coordinates to Vec2 display position coordinates.
+ To be used with <a href="../3 classes/Strings.DisplayString.html#DisplayString:GetPosition">Strings.DisplayString:GetPosition</a>.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">screenPos</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+         Pixel coordinates to translate to display position.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+        Display position.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example: Translate pixel coordinates to display position.
+</span><span class="keyword">local</span> screenPos = TEN.Vec2(<span class="number">400</span>, <span class="number">300</span>)
+<span class="keyword">local</span> percentPos = TEN.Util.ScreenToPercent(screenPos)
+
+<span class="comment">-- Example 2: Using ScreenToPercent with DisplayString:GetPosition.
+</span><span class="keyword">local</span> textPos = str1:GetPosition()
+<span class="keyword">local</span> percentPos = TEN.Util.ScreenToPercent(textPos)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "PickMoveableByDisplayPosition"></a>
+    <strong>PickMoveableByDisplayPosition(position)</strong>
+    </dt>
+    <dd>
+    Pick a moveable by the given display position.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+         Display space position in percent.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 classes/Objects.Moveable.html#">Moveable</a></span>
+        Picked moveable (nil if no moveable was found under the cursor).
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example: Pick a moveable at the center of the screen.
+</span><span class="keyword">local</span> screenCenter = TEN.Vec2(<span class="number">50</span>, <span class="number">50</span>)
+<span class="keyword">local</span> pickedMoveable = TEN.Util.PickMoveableByDisplayPosition(screenCenter)
+<span class="keyword">if</span> pickedMoveable <span class="keyword">then</span>
+    <span class="global">print</span>(<span class="string">"Picked moveable: "</span> .. pickedMoveable:GetName())
+<span class="keyword">else</span>
+    <span class="global">print</span>(<span class="string">"No moveable found at the center of the screen."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "PickStaticByDisplayPosition"></a>
+    <strong>PickStaticByDisplayPosition(position)</strong>
+    </dt>
+    <dd>
+    Pick a static mesh by the given display position.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
+         Display space position in percent.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../3 classes/Objects.Static.html#">Static</a></span>
+        Picked static mesh (nil if no static mesh was found under the cursor).
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Example: Pick a static mesh at the center of the screen.
+</span><span class="keyword">local</span> screenCenter = TEN.Vec2(<span class="number">50</span>, <span class="number">50</span>)
+<span class="keyword">local</span> pickedStatic = TEN.Util.PickStaticByDisplayPosition(screenCenter)
+<span class="keyword">if</span> pickedStatic <span class="keyword">then</span>
+    <span class="global">print</span>(<span class="string">"Picked static mesh."</span>)
+<span class="keyword">else</span>
+    <span class="global">print</span>(<span class="string">"No static mesh found at the center of the screen."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "PrintLog"></a>
+    <strong>PrintLog(Message, logLevel, [allowSpam])</strong>
+    </dt>
+    <dd>
+    Write messages within the Log file.<br>
+ For native Lua handling of errors, see <a href="https://www.lua.org/pil/8.3.html">Error management</a> and <a href="https://www.lua.org/manual/5.4/manual.html#pdf-debug.traceback">debug.traceback</a>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">Message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         to be displayed within the log.
+        </li>
+        <li><span class="parameter">logLevel</span>
+            <span class="types"><a class="type" href="../5 enums/Util.LogLevel.html#">LogLevel</a></span>
+         Log level to be displayed.
+        </li>
+        <li><span class="parameter">allowSpam</span>
+            <span class="types"><span class="type">bool</span></span>
+         If true, allows continuous spamming of the message.
+         <em>Optional.</em>
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">TEN.Util.PrintLog(<span class="string">'test info log'</span>, TEN.Util.LogLevel.INFO)
+TEN.Util.PrintLog(<span class="string">'test warning log'</span>, TEN.Util.LogLevel.WARNING)
+TEN.Util.PrintLog(<span class="string">'test error log'</span>, TEN.Util.LogLevel.ERROR)
+<span class="comment">-- spammed message
+</span>TEN.Util.PrintLog(<span class="string">'test spam log'</span>, TEN.Util.LogLevel.INFO, <span class="keyword">true</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "GetObjectIDString"></a>
+    <strong>GetObjectIDString(objectID)</strong>
+    </dt>
+    <dd>
+    Converts ObjectID to a string.  Used by Custom Inventory module to retrieve examine texts.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">objectID</span>
+            <span class="types"><a class="type" href="../5 enums/Objects.ObjID.html#">ObjID</a></span>
+         ID of the object.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        ObjectID converted to string.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "OnUseItemCallBack"></a>
+    <strong>OnUseItemCallBack()</strong>
+    </dt>
+    <dd>
+    Runs the OnUseItem callback.  Used by Custom Inventory module to enable OnItemUse callbacks.
+
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="https://github.com/hispidence/TEN-LDoc">TEN-LDoc</a> (a fork of <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a>)</i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
