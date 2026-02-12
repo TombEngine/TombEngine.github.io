@@ -66,7 +66,6 @@
   <li>    <a href="../3 classes/Objects.Static.html">Objects.Static</a></li>
   <li>    <a href="../3 classes/Objects.Volume.html">Objects.Volume</a></li>
   <li>    <a href="../3 classes/Strings.DisplayString.html">Strings.DisplayString</a></li>
-  <li>    <a href="../3 classes/View.DisplayItem.html">View.DisplayItem</a></li>
   <li>    <a href="../3 classes/View.DisplaySprite.html">View.DisplaySprite</a></li>
 </ul>
 <h2>4 Primitive Classes</h2>
@@ -186,6 +185,14 @@
 	<td class="name" ><a href="#PrintLog">PrintLog(Message, logLevel, [allowSpam])</a></td>
 	<td class="summary">Write messages within the Log file.<br>
  For native Lua handling of errors, see <a href="https://www.lua.org/pil/8.3.html">Error management</a> and <a href="https://www.lua.org/manual/5.4/manual.html#pdf-debug.traceback">debug.traceback</a></td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#GetObjectIDString">GetObjectIDString(objectID)</a></td>
+	<td class="summary">Converts ObjectID to a string.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#OnUseItemCallBack">OnUseItemCallBack()</a></td>
+	<td class="summary">Runs the OnUseItem callback.</td>
 	</tr>
 </table>
 
@@ -594,6 +601,49 @@ TEN.Util.PrintLog(<span class="string">'test error log'</span>, TEN.Util.LogLeve
 <span class="comment">-- spammed message
 </span>TEN.Util.PrintLog(<span class="string">'test spam log'</span>, TEN.Util.LogLevel.INFO, <span class="keyword">true</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "GetObjectIDString"></a>
+    <strong>GetObjectIDString(objectID)</strong>
+    </dt>
+    <dd>
+    Converts ObjectID to a string.  Used by Custom Inventory module to retrieve examine texts.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">objectID</span>
+            <span class="types"><a class="type" href="../5 enums/Objects.ObjID.html#">ObjID</a></span>
+         ID of the object.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        ObjectID converted to string.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "OnUseItemCallBack"></a>
+    <strong>OnUseItemCallBack()</strong>
+    </dt>
+    <dd>
+    Runs the OnUseItem callback.  Used by Custom Inventory module to enable OnItemUse callbacks.
+
+
+
+
+
+
+
 
 </dd>
 </dl>
