@@ -66,6 +66,7 @@
   <li>    <a href="../3 classes/Objects.Static.html">Objects.Static</a></li>
   <li>    <a href="../3 classes/Objects.Volume.html">Objects.Volume</a></li>
   <li>    <a href="../3 classes/Strings.DisplayString.html">Strings.DisplayString</a></li>
+  <li>    <a href="../3 classes/View.DisplayItem.html">View.DisplayItem</a></li>
   <li>    <a href="../3 classes/View.DisplaySprite.html">View.DisplaySprite</a></li>
 </ul>
 <h2>4 Primitive Classes</h2>
@@ -431,7 +432,11 @@
 	</tr>
 	<tr>
 	<td class="name" ><a href="#Moveable:ShowInteractionHighlight">Moveable:ShowInteractionHighlight([interactionType])</a></td>
-	<td class="summary">Show interaction highlight for the object.</td>
+	<td class="summary">Show interaction highlight for the object for current game frame.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#Moveable:HideInteractionHighlight">Moveable:HideInteractionHighlight()</a></td>
+	<td class="summary">Suppresses interaction highlight for the object for current game frame.</td>
 	</tr>
 </table>
 
@@ -2228,7 +2233,8 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
     <strong>Moveable:ShowInteractionHighlight([interactionType])</strong>
     </dt>
     <dd>
-    Show interaction highlight for the object.  Can be useful if you have scripted an interaction with it.
+    Show interaction highlight for the object for current game frame.
+ Can be useful if you have scripted an interaction with it.
 
 
 
@@ -2240,6 +2246,22 @@ sas:SetPosition(newPos, <span class="keyword">false</span>)</pre>
          <em>Optional.</em>
         </li>
     </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Moveable:HideInteractionHighlight"></a>
+    <strong>Moveable:HideInteractionHighlight()</strong>
+    </dt>
+    <dd>
+    Suppresses interaction highlight for the object for current game frame.
+ Can be useful when you need to manually block interaction highlight for a particular object or in a particular area.
+
+
+
 
 
 

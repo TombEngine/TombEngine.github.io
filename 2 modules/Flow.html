@@ -66,6 +66,7 @@
   <li>    <a href="../3 classes/Objects.Static.html">Objects.Static</a></li>
   <li>    <a href="../3 classes/Objects.Volume.html">Objects.Volume</a></li>
   <li>    <a href="../3 classes/Strings.DisplayString.html">Strings.DisplayString</a></li>
+  <li>    <a href="../3 classes/View.DisplayItem.html">View.DisplayItem</a></li>
   <li>    <a href="../3 classes/View.DisplaySprite.html">View.DisplaySprite</a></li>
 </ul>
 <h2>4 Primitive Classes</h2>
@@ -265,6 +266,10 @@ scripts too.</p>
 	<tr>
 	<td class="name" ><a href="#SetTotalSecretCount">SetTotalSecretCount(count)</a></td>
 	<td class="summary">Set total number of secrets in the game.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#GetGlobalGameTime">GetGlobalGameTime()</a></td>
+	<td class="summary">Get global game session time.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#FlipMap">FlipMap(flipmap)</a></td>
@@ -1054,6 +1059,28 @@ Must be an integer value (0 means no secrets).
         </li>
     </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "GetGlobalGameTime"></a>
+    <strong>GetGlobalGameTime()</strong>
+    </dt>
+    <dd>
+    Get global game session time.
+Represents a global session time elapsed since the game launch. Does not correspond to time values in level or game statistics.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../4 primitive classes/Time.html#">Time</a></span>
+        Global game session time elapsed since the game launch.
+    </ol>
 
 
 

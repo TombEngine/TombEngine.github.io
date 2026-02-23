@@ -66,6 +66,7 @@
   <li>    <a href="../3 classes/Objects.Static.html">Objects.Static</a></li>
   <li>    <a href="../3 classes/Objects.Volume.html">Objects.Volume</a></li>
   <li>    <a href="../3 classes/Strings.DisplayString.html">Strings.DisplayString</a></li>
+  <li>    <a href="../3 classes/View.DisplayItem.html">View.DisplayItem</a></li>
   <li>    <a href="../3 classes/View.DisplaySprite.html">View.DisplaySprite</a></li>
 </ul>
 <h2>4 Primitive Classes</h2>
@@ -136,7 +137,12 @@
 
 <h1>Class <code>Flow.Settings</code></h1>
 <p>Global engine settings which don't fall into particular category or can't be assigned to a specific object.</p>
-<p> Can be accessed using <a href="../2 modules/Flow.html#SetSettings">Flow.SetSettings</a> and <a href="../2 modules/Flow.html#GetSettings">Flow.GetSettings</a> functions.</p>
+<p> Flow.Settings is composed of several sub-tables, and each section of the Flow.Settings documentation corresponds to one of these sub-tables.
+ These configuration groups are located in <em>settings.lua</em> script file.</p>
+
+<p> It is possible to change settings on a per-level basis via <a href="../2 modules/Flow.html#GetSettings">Flow.GetSettings</a> and <a href="../2 modules/Flow.html#SetSettings">Flow.SetSettings</a> functions, but keep in mind that
+ <em>settings.lua is reread every time the level is reloaded</em>. Therefore, you need to implement custom settings management in your level script
+ if you want to override global settings.</p>
 
 
 <h2><a href="#Animations">Animations </a></h2>
@@ -152,14 +158,6 @@
 	<tr>
 	<td class="name" ><a href="#crawlspaceSwandive">crawlspaceSwandive</a></td>
 	<td class="summary">Crawlspace dive.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#overhangClimb">overhangClimb</a></td>
-	<td class="summary">Overhang climbing.</td>
-	</tr>
-	<tr>
-	<td class="name" ><a href="#slideExtended">slideExtended</a></td>
-	<td class="summary">Extended slide mechanics.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#sprintJump">sprintJump</a></td>
@@ -369,7 +367,7 @@
 	<td class="summary">Can the game utilize the fast reload feature?</td>
 	</tr>
 </table>
-<h2><a href="#User_interface">User interface </a></h2>
+<h2><a href="#UI">UI </a></h2>
 <table class="function_list">
 	<tr>
 	<td class="name" ><a href="#headerTextColor">headerTextColor</a></td>
@@ -493,6 +491,15 @@
           <div class="section-description">
            These settings determine whether a specific moveset is available in-game.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of enabling crawlspace roll
+</span><span class="comment">-- In Settings.lua
+</span>settings.Animations.crouchRoll = <span class="keyword">true</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Animations.crouchRoll = <span class="keyword">false</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "crawlExtended"></a>
@@ -507,6 +514,7 @@
         <li><span class="parameter">crawlExtended</span>
             <span class="types"><span class="type">bool</span></span>
          When enabled, player will be able to traverse across one-click steps in crawlspaces.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -528,6 +536,7 @@
         <li><span class="parameter">crouchRoll</span>
             <span class="types"><span class="type">bool</span></span>
          When enabled, player can perform crawlspace roll by pressing sprint key.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -549,48 +558,7 @@
         <li><span class="parameter">crawlspaceSwandive</span>
             <span class="types"><span class="type">bool</span></span>
          When enabled, player will be able to swandive into crawlspaces.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "overhangClimb"></a>
-    <strong>overhangClimb</strong>
-    </dt>
-    <dd>
-    Overhang climbing.
-
-
-
-    <ul>
-        <li><span class="parameter">overhangClimb</span>
-            <span class="types"><span class="type">bool</span></span>
-         Enables overhang climbing feature. Currently does not work.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "slideExtended"></a>
-    <strong>slideExtended</strong>
-    </dt>
-    <dd>
-    Extended slide mechanics.
-
-
-
-    <ul>
-        <li><span class="parameter">slideExtended</span>
-            <span class="types"><span class="type">bool</span></span>
-         If enabled, player will be able to change slide direction with controls. Currently does not work.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -612,6 +580,7 @@
         <li><span class="parameter">sprintJump</span>
             <span class="types"><span class="type">bool</span></span>
          If enabled, player will be able to perform extremely long jump when sprinting.
+         <em>Default: false.</em>
         </li>
     </ul>
 
@@ -633,6 +602,7 @@
         <li><span class="parameter">ledgeJumps</span>
             <span class="types"><span class="type">bool</span></span>
          If this setting is enabled, player will be able to jump upwards while hanging on the ledge.
+         <em>Default: false.</em>
         </li>
     </ul>
 
@@ -654,6 +624,7 @@
         <li><span class="parameter">poseTimeout</span>
             <span class="types"><span class="type">int</span></span>
          If this setting is larger than 0, idle standing pose animation will be performed after given timeout (in seconds).
+         <em>Default: 20.</em>
         </li>
     </ul>
 
@@ -668,6 +639,17 @@
           <div class="section-description">
            Parameters to customize camera and everything related to it.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing binocular and lasersight highlight colors
+</span><span class="comment">-- In Settings.lua
+</span>settings.Camera.binocularLightColor = TEN.Color(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>)
+settings.Camera.lasersightLightColor = TEN.Color(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>)
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Camera.binocularLightColor = TEN.Color(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>)
+settings.Camera.lasersightLightColor = TEN.Color(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>)
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "binocularLightColor"></a>
@@ -682,6 +664,7 @@
         <li><span class="parameter">binocularLightColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          Color of highlight, when player presses action. Zero color means there will be no highlight.
+         <em>Default: TEN.Color(192&#44; 192&#44; 96).</em>
         </li>
     </ul>
 
@@ -703,6 +686,7 @@
         <li><span class="parameter">lasersightLightColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          Lasersight highlight color. Zero color means there will be no highlight.
+         <em>Default: TEN.Color(255&#44; 0&#44; 0).</em>
         </li>
     </ul>
 
@@ -724,6 +708,7 @@
         <li><span class="parameter">objectCollision</span>
             <span class="types"><span class="type">bool</span></span>
          When enabled, camera will collide with moveables and statics. Disable for TR4-like camera behaviour.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -738,6 +723,17 @@
           <div class="section-description">
            These settings change appearance and behaviour of a flare.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing flare color and disabling sparks
+</span><span class="comment">-- In Settings.lua
+</span>settings.Flare.color = TEN.Color(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>)
+settings.Flare.sparks = <span class="keyword">false</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Flare.color = TEN.Color(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>)
+settings.Flare.sparks = <span class="keyword">false</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "color"></a>
@@ -752,6 +748,7 @@
         <li><span class="parameter">color</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          Flare color. Used for sparks and lensflare coloring as well.
+         <em>Default: TEN.Color(128&#44; 64&#44; 0).</em>
         </li>
     </ul>
 
@@ -773,6 +770,7 @@
         <li><span class="parameter">offset</span>
             <span class="types"><a class="type" href="../4 primitive classes/Vec3.html#">Vec3</a></span>
          A relative muzzle offset where light and particle effects originate from.
+         <em>Default: Vec3(0&#44; 0&#44; 41).</em>
         </li>
     </ul>
 
@@ -794,6 +792,7 @@
         <li><span class="parameter">range</span>
             <span class="types"><span class="type">int</span></span>
          Flare light radius or range. Represented in "clicks" equal to 256 world units.
+         <em>Default: 9.</em>
         </li>
     </ul>
 
@@ -815,6 +814,7 @@
         <li><span class="parameter">timeout</span>
             <span class="types"><span class="type">int</span></span>
          Flare burn timeout. Flare will stop working after given timeout (specified in seconds).
+         <em>Default: 60.</em>
         </li>
     </ul>
 
@@ -836,6 +836,7 @@
         <li><span class="parameter">pickupCount</span>
             <span class="types"><span class="type">int</span></span>
          Specifies amount of flares that you get when you pick up a box of flares.
+         <em>Default: 12.</em>
         </li>
     </ul>
 
@@ -857,6 +858,7 @@
         <li><span class="parameter">lensflareBrightness</span>
             <span class="types"><span class="type">float</span></span>
          Brightness multiplier. Specifies how bright lens flare is in relation to light (on a range from 0 to 1).
+         <em>Default: 0.5.</em>
         </li>
     </ul>
 
@@ -878,6 +880,7 @@
         <li><span class="parameter">sparks</span>
             <span class="types"><span class="type">bool</span></span>
          Spark effect. Determines whether flare generates sparks when burning.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -899,6 +902,7 @@
         <li><span class="parameter">smoke</span>
             <span class="types"><span class="type">bool</span></span>
          Smoke effect. Determines whether flare generates smoke when burning.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -920,6 +924,7 @@
         <li><span class="parameter">muzzleGlow</span>
             <span class="types"><span class="type">bool</span></span>
          Glow effect. Determines whether flare generates glow when burning.
+         <em>Default: false.</em>
         </li>
     </ul>
 
@@ -941,6 +946,7 @@
         <li><span class="parameter">flicker</span>
             <span class="types"><span class="type">bool</span></span>
          Light and lensflare flickering. When turned off, flare light will be constant.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -955,6 +961,17 @@
           <div class="section-description">
            These settings are used to enable or disable certain gameplay features.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of disabling inventory and enabling target occlusion
+</span><span class="comment">-- In Settings.lua
+</span>settings.Gameplay.enableInventory = <span class="keyword">false</span>
+settings.Gameplay.targetObjectOcclusion = <span class="keyword">true</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Gameplay.enableInventory = <span class="keyword">false</span>
+settings.Gameplay.targetObjectOcclusion = <span class="keyword">true</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "enableInventory"></a>
@@ -970,6 +987,7 @@
         <li><span class="parameter">enableInventory</span>
             <span class="types"><span class="type">bool</span></span>
          If false, inventory will not open.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -992,6 +1010,7 @@
         <li><span class="parameter">killPoisonedEnemies</span>
             <span class="types"><span class="type">bool</span></span>
          If false, enemies won't be killed by poison.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1013,6 +1032,7 @@
         <li><span class="parameter">targetObjectOcclusion</span>
             <span class="types"><span class="type">bool</span></span>
          If enabled, player won't be able to target enemies through moveables and static meshes.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1027,6 +1047,17 @@
           <div class="section-description">
            These settings are used to enable or disable certain graphics features.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of disabling ambient occlusion and disabling skinning
+</span><span class="comment">-- In Settings.lua
+</span>settings.Graphics.ambientOcclusion = <span class="keyword">false</span>
+settings.Graphics.skinning = <span class="keyword">false</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Graphics.ambientOcclusion = <span class="keyword">false</span>
+settings.Graphics.skinning = <span class="keyword">false</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "ambientOcclusion"></a>
@@ -1041,6 +1072,7 @@
         <li><span class="parameter">ambientOcclusion</span>
             <span class="types"><span class="type">bool</span></span>
          If disabled, ambient occlusion setting will be forced to off, and corresponding menu entry in the Display Settings dialog will be grayed out.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1062,6 +1094,7 @@
         <li><span class="parameter">skinning</span>
             <span class="types"><span class="type">bool</span></span>
          If enabled, skinning will be used for animated objects with skinned mesh. Disable to force classic TR workflow.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1078,6 +1111,17 @@
  Table consists of three entries, with first one representing classic Lara braid, and 2 and 3 representing left and right young Lara braids respectively.
  Therefore, if you want to access classic Lara braid settings, use <code>settings.Hair[1]</code>, and so on.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing offset for young left braid
+</span><span class="comment">-- In Settings.lua
+</span>settings.Hair[<span class="number">2</span>].offset = TEN.Vec3(-<span class="number">50</span>, -<span class="number">50</span>, -<span class="number">50</span>)
+settings.Hair[<span class="number">3</span>].offset = TEN.Vec3(<span class="number">50</span>, -<span class="number">50</span>, -<span class="number">50</span>)
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Hair[<span class="number">2</span>].offset = TEN.Vec3(-<span class="number">50</span>, -<span class="number">50</span>, -<span class="number">50</span>)
+settings.Hair[<span class="number">3</span>].offset = TEN.Vec3(<span class="number">50</span>, -<span class="number">50</span>, -<span class="number">50</span>)
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "rootMesh"></a>
@@ -1092,6 +1136,7 @@
         <li><span class="parameter">rootMesh</span>
             <span class="types"><span class="type">int</span></span>
          Index of a root mesh to which hair will attach. Root mesh may be different for each hair object.
+         <em>Default: 14.</em>
         </li>
     </ul>
 
@@ -1148,6 +1193,16 @@
           <div class="section-description">
            These settings determine visibility of particular in-game HUD elements.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of disabling status bars and disabling pickup notifier
+</span><span class="comment">-- In Settings.lua
+</span>settings.Hud.statusBars = <span class="keyword">false</span>
+settings.Hud.pickupNotifier = <span class="keyword">false</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Hud.statusBars = <span class="keyword">false</span>
+settings.Hud.pickupNotifier = <span class="keyword">false</span></pre>
     <dl class="function">
     <dt>
     <a name = "statusBars"></a>
@@ -1162,6 +1217,7 @@
         <li><span class="parameter">statusBars</span>
             <span class="types"><span class="type">bool</span></span>
          If disabled, all status bars (health, air, stamina) will be hidden.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1183,6 +1239,7 @@
         <li><span class="parameter">loadingBar</span>
             <span class="types"><span class="type">bool</span></span>
          If disabled, loading bar will be invisible in game.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1204,6 +1261,7 @@
         <li><span class="parameter">speedometer</span>
             <span class="types"><span class="type">bool</span></span>
          If disabled, speedometer will be invisible in game.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1225,6 +1283,7 @@
         <li><span class="parameter">pickupNotifier</span>
             <span class="types"><span class="type">bool</span></span>
          If disabled, pickup notifier will be invisible in game.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1239,6 +1298,17 @@
           <div class="section-description">
            Features and enhancements that modify enemy behaviour during pathfinding and while tracking player and other enemies.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing pathfinding mode and disabling moveable avoidance
+</span><span class="comment">-- In Settings.lua
+</span>settings.Pathfinding.mode = TEN.Flow.PathfindingMode.Dijkstra
+settings.Pathfinding.moveableAvoidance = <span class="keyword">false</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Pathfinding.mode = TEN.Flow.PathfindingMode.Dijkstra
+settings.Pathfinding.moveableAvoidance = <span class="keyword">false</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "mode"></a>
@@ -1253,6 +1323,7 @@
         <li><span class="parameter">mode</span>
             <span class="types"><a class="type" href="../5 enums/Flow.PathfindingMode.html#">PathfindingMode</a></span>
          The algorithm used for pathfinding. For more information, refer to <a href="../5 enums/Flow.PathfindingMode.html#">Flow.PathfindingMode</a>.
+         <em>Default: Flow.PathfindingMode.ASTAR.</em>
         </li>
     </ul>
 
@@ -1274,6 +1345,7 @@
         <li><span class="parameter">searchDepth</span>
             <span class="types"><span class="type">int</span></span>
          Specifies how deep the AI will search the pathfinding graph when calculating a path to the target.
+         <em>Default: 5.</em>
         </li>
     </ul>
 
@@ -1296,6 +1368,7 @@
             <span class="types"><span class="type">int</span></span>
          If enemy is being attacked, it attempts to escape as far as possible from the attacker. This
  value specifies the distance the enemy will try to reach when escaping.
+         <em>Default: 5.</em>
         </li>
     </ul>
 
@@ -1316,8 +1389,8 @@
     <ul>
         <li><span class="parameter">stalkDistance</span>
             <span class="types"><span class="type">int</span></span>
-         Distance at which an enemy may follow a target without attempting another attack after having
- previously escaped.
+         Distance at which an enemy may start to track a target without attempting to attack.
+         <em>Default: 3.</em>
         </li>
     </ul>
 
@@ -1341,6 +1414,7 @@
          Determines how far ahead enemy predicts the target's position based on its
  current velocity. A higher value makes enemies intercept the target earlier, while a lower value reduces anticipation.
  If set to 0, prediction will be disabled.
+         <em>Default: 15.0.</em>
         </li>
     </ul>
 
@@ -1364,6 +1438,7 @@
          Specifies the timeout in seconds after which the enemy will be punished for
  collisions with illegal geometry and will be forced to ignore its current path to the target and recalculate it.
  If set to 0, collision penalties will be disabled.
+         <em>Default: 1.0.</em>
         </li>
     </ul>
 
@@ -1386,6 +1461,7 @@
             <span class="types"><span class="type">float</span></span>
          If a collision penalty was applied to an enemy, this value specifies the timeout
  in seconds during which the enemy will ignore the path to the target which previously caused a penalty.
+         <em>Default: 6.0.</em>
         </li>
     </ul>
 
@@ -1408,6 +1484,7 @@
             <span class="types"><span class="type">bool</span></span>
          Avoid collisions with moveables when possible. Enemy will attempt to turn away from the
  moveable if it's in the way. Applies only to moveables not placed near room geometry.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1430,6 +1507,7 @@
             <span class="types"><span class="type">bool</span></span>
          Avoid collisions with static meshes when possible. Enemy will attempt to turn away from the
  static mesh if it's in the way. Applies only to static meshes not placed near room geometry.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1452,6 +1530,7 @@
             <span class="types"><span class="type">bool</span></span>
          Avoid swimming or flying forward into illegal room geometry that can be avoided
  by moving upwards.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1474,6 +1553,7 @@
             <span class="types"><span class="type">bool</span></span>
          For flying enemies, prevents diving into the water and dying while attacking
  the player or other enemies from above. For swimming enemies, adds extra measures to avoid glitching out of the water.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1496,6 +1576,7 @@
             <span class="types"><span class="type">bool</span></span>
          Smooths out vertical movement for swimming and flying enemies to prevent
  sudden unnatural jerks or changes in direction.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1510,6 +1591,17 @@
           <div class="section-description">
            Here you will find various settings for game world physics.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing global gravity and swim velocity
+</span><span class="comment">-- In Settings.lua
+</span>settings.Physics.gravity = <span class="number">9.81</span>
+settings.Physics.swimVelocity = <span class="number">6.0</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Physics.gravity = <span class="number">9.81</span>
+settings.Physics.swimVelocity = <span class="number">6.0</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "gravity"></a>
@@ -1524,6 +1616,7 @@
         <li><span class="parameter">gravity</span>
             <span class="types"><span class="type">float</span></span>
          Specifies global gravity. Mostly affects Lara and several other objects.
+         <em>Default: 6.0.</em>
         </li>
     </ul>
 
@@ -1545,6 +1638,7 @@
         <li><span class="parameter">swimVelocity</span>
             <span class="types"><span class="type">float</span></span>
          Specifies swim velocity for Lara. Affects both surface and underwater.
+         <em>Default: 50.0.</em>
         </li>
     </ul>
 
@@ -1559,6 +1653,17 @@
           <div class="section-description">
            Global system settings that is not directly related to gameplay.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing error mode and disabling fast reload
+</span><span class="comment">-- In Settings.lua
+</span>settings.System.errorMode = TEN.Flow.ErrorMode.Throw
+settings.System.fastReload = <span class="keyword">false</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.System.errorMode = TEN.Flow.ErrorMode.Throw
+settings.System.fastReload = <span class="keyword">false</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "errorMode"></a>
@@ -1573,6 +1678,7 @@
         <li><span class="parameter">errorMode</span>
             <span class="types"><a class="type" href="../5 enums/Flow.ErrorMode.html#">ErrorMode</a></span>
          Error mode to use.
+         <em>Default: Flow.ErrorMode.WARN.</em>
         </li>
     </ul>
 
@@ -1596,6 +1702,7 @@
         <li><span class="parameter">multithreaded</span>
             <span class="types"><span class="type">bool</span></span>
          Determines whether to use multithreading or not.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1620,6 +1727,7 @@
         <li><span class="parameter">fastReload</span>
             <span class="types"><span class="type">bool</span></span>
          Toggles fast reload on or off.
+         <em>Default: true.</em>
         </li>
     </ul>
 
@@ -1629,11 +1737,22 @@
 
 </dd>
 </dl>
-    <h2 class="section-header has-description"><a name="User_interface"></a>User interface </h2>
+    <h2 class="section-header has-description"><a name="UI"></a>UI </h2>
 
           <div class="section-description">
            System-wide user interface settings.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing title menu position and header text color
+</span><span class="comment">-- In Settings.lua
+</span>settings.UI.titleMenuPosition = TEN.Vec2(<span class="number">400</span>, <span class="number">300</span>)
+settings.UI.headerTextColor = TEN.Color(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>)
+
+<span class="comment">-- In the title's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.UI.titleMenuPosition = TEN.Vec2(<span class="number">400</span>, <span class="number">300</span>)
+settings.UI.headerTextColor = TEN.Color(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>)
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "headerTextColor"></a>
@@ -1648,6 +1767,7 @@
         <li><span class="parameter">headerTextColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          A color used for displaying header text in system menus.
+         <em>Default: TEN.Color(216&#44; 117&#44; 49).</em>
         </li>
     </ul>
 
@@ -1669,6 +1789,7 @@
         <li><span class="parameter">optionTextColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          A color used for displaying option text in system menus.
+         <em>Default: TEN.Color(240&#44; 220&#44; 32).</em>
         </li>
     </ul>
 
@@ -1690,6 +1811,7 @@
         <li><span class="parameter">plainTextColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          A color used for displaying plain text in system menus.
+         <em>Default: TEN.Color(255&#44; 255&#44; 255).</em>
         </li>
     </ul>
 
@@ -1711,6 +1833,7 @@
         <li><span class="parameter">disabledTextColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          A color used for displaying any header text in menus.
+         <em>Default: TEN.Color(128&#44; 128&#44; 128).</em>
         </li>
     </ul>
 
@@ -1732,6 +1855,7 @@
         <li><span class="parameter">shadowTextColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          A color used for drawing a shadow under any rendered text.
+         <em>Default: TEN.Color(0&#44; 0&#44; 0).</em>
         </li>
     </ul>
 
@@ -1753,6 +1877,7 @@
         <li><span class="parameter">titleLogoPosition</span>
             <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
          Center point of a title level logo position.
+         <em>Default: TEN.Vec2(50&#44; 20).</em>
         </li>
     </ul>
 
@@ -1774,6 +1899,7 @@
         <li><span class="parameter">titleLogoScale</span>
             <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
          Title level logo scale.
+         <em>Default: TEN.Vec2(1&#44; 1).</em>
         </li>
     </ul>
 
@@ -1795,6 +1921,7 @@
         <li><span class="parameter">titleLogoColor</span>
             <span class="types"><a class="type" href="../4 primitive classes/Color.html#">Color</a></span>
          Title level logo color.
+         <em>Default: TEN.Color(255&#44; 255&#44; 255).</em>
         </li>
     </ul>
 
@@ -1817,6 +1944,7 @@
             <span class="types"><a class="type" href="../4 primitive classes/Vec2.html#">Vec2</a></span>
          Title level menu position. Horizontal coordinate represents an alignment baseline,
  while vertical coordinate represents a first menu entry's vertical position.
+         <em>Default: TEN.Vec2(50&#44; 66).</em>
         </li>
     </ul>
 
@@ -1838,6 +1966,7 @@
         <li><span class="parameter">titleMenuScale</span>
             <span class="types"><span class="type">float</span></span>
          Title level menu scale.
+         <em>Default: 1.0.</em>
         </li>
     </ul>
 
@@ -1861,6 +1990,7 @@
          Specifies menu alignment.
  Can be set to <a href="../5 enums/Strings.DisplayStringOption.html#CENTER">Strings.DisplayStringOption.CENTER</a> or <a href="../5 enums/Strings.DisplayStringOption.html#RIGHT">Strings.DisplayStringOption.RIGHT</a>.
  If set to <code>nil</code>, or set to any other value, menu will be aligned to the left side of the screen.
+         <em>Default: Strings.DisplayStringOption.CENTER.</em>
         </li>
     </ul>
 
@@ -1874,8 +2004,21 @@
 
           <div class="section-description">
            This is a table of weapon settings, with several parameters available for every weapon.
- Access particular weapon's settings by using <a href="../5 enums/Objects.WeaponType.html#">Objects.WeaponType</a> as an index for this table, e.g. <code>settings.Weapons[Flow.WeaponType.PISTOLS]</code>.
+ Access particular weapon's settings by using <a href="../5 enums/Objects.WeaponType.html#">Objects.WeaponType</a> as an index for this table, e.g. <code>settings.Weapons[Flow.WeaponType.PISTOLS]</code>.</p>
+
+<p> Default values for these settings are different for different weapons. Refer to <em>settings.lua</em> file to see them.
           </div>
+            <h3>Usage:</h3>
+            <pre class="example"><span class="comment">-- Example of changing pistols accuracy and damage
+</span><span class="comment">-- In Settings.lua
+</span>settings.Weapons[TEN.Objects.WeaponType.PISTOLS].accuracy = <span class="number">5.0</span>
+settings.Weapons[TEN.Objects.WeaponType.PISTOLS].damage = <span class="number">10</span>
+
+<span class="comment">-- In the level's lua file
+</span><span class="keyword">local</span> settings = TEN.Flow.GetSettings()
+settings.Weapons[TEN.Objects.WeaponType.PISTOLS].accuracy = <span class="number">5.0</span>
+settings.Weapons[TEN.Objects.WeaponType.PISTOLS].damage = <span class="number">10</span>
+TEN.Flow.SetSettings(settings)</pre>
     <dl class="function">
     <dt>
     <a name = "accuracy"></a>
