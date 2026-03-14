@@ -791,9 +791,9 @@ Timer.Create(<span class="string">"my_timer"</span>, <span class="number">6.1</s
          The type of comparison.<br>
  0 : If the remaining time is equal to the value<br>
  1 : If the remaining time is different from the value<br>
- 2 : If the remaining time is less the value<br>
+ 2 : If the remaining time is less than the value<br>
  3 : If the remaining time is less or equal to the value<br>
- 4 : If the remaining time is greater the value<br>
+ 4 : If the remaining time is greater than the value<br>
  5 : If the remaining time is greater or equal to the value
         </li>
         <li><span class="parameter">seconds</span>
@@ -1027,8 +1027,8 @@ LevelFuncs.OnLoop = <span class="keyword">function</span>() <span class="comment
     <ul>
         <pre class="example"><span class="comment">-- Example: this function checks if totalTime is equal to 5.1 seconds
 </span><span class="keyword">if</span> Timer.IfExists(<span class="string">"my_timer"</span>) <span class="keyword">and</span> Timer.Get(<span class="string">"my_timer"</span>):IfTotalTimeIs(<span class="number">0</span>, <span class="number">5.1</span>) <span class="keyword">then</span>
-   <span class="keyword">local</span> currentToltalTime = Timer.Get(<span class="string">"my_timer"</span>):GetTotalTime()
-   Timer.Get(<span class="string">"my_timer"</span>):SetTotalTime(currentToltalTime + <span class="number">1.0</span>)
+   <span class="keyword">local</span> currentTotalTime = Timer.Get(<span class="string">"my_timer"</span>):GetTotalTime()
+   Timer.Get(<span class="string">"my_timer"</span>):SetTotalTime(currentTotalTime + <span class="number">1.0</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
