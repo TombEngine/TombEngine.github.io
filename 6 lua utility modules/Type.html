@@ -707,7 +707,7 @@ LevelFuncs.AddProp = <span class="keyword">function</span> (prop)
         </li>
         <li><span class="parameter">showError</span>
             <span class="types"><span class="type">bool</span></span>
-         (optional) If <code>true</code>, an error message will be printed if the parameters are invalid.
+         (optional) If <code>true</code>, an error message will be printed in console if the parameters are invalid.
          <em>Default: true.</em>
         </li>
     </ul>
@@ -727,7 +727,9 @@ LevelFuncs.AddProp = <span class="keyword">function</span> (prop)
 </span><span class="keyword">local</span> <span class="global">string</span> = TEN.Strings.DisplayString(<span class="string">"Example"</span>, TEN.Vec2(<span class="number">50</span>, <span class="number">50</span>))
 LevelFuncs.SetDisplayStringFlags = <span class="keyword">function</span> (flags)
     <span class="keyword">for</span> _, flag <span class="keyword">in</span> <span class="global">ipairs</span>(flags) <span class="keyword">do</span>
-        <span class="keyword">if</span> <span class="keyword">not</span> Type.IsEnumValue(flag, TEN.Strings.DisplayStringOption) <span class="keyword">then</span>
+        <span class="comment">-- Set showError to false to disable the internal error messages,
+</span>        <span class="comment">-- since the function already has its own error handling
+</span>        <span class="keyword">if</span> <span class="keyword">not</span> Type.IsEnumValue(flag, TEN.Strings.DisplayStringOption, <span class="keyword">false</span>) <span class="keyword">then</span>
             TEN.Util.PrintLog(<span class="string">"Invalid flag for DisplayStringOption enum."</span>, TEN.Util.LogLevel.ERROR)
             <span class="keyword">return</span>
         <span class="keyword">end</span>
