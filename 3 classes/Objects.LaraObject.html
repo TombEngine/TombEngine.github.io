@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.11 Lua API</title>
+    <title>TombEngine 1.11.1 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -228,12 +228,12 @@
 	<td class="summary">Get current weapon's ammo count.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#LaraObject:GetWeaponMode">LaraObject:GetWeaponMode()</a></td>
-	<td class="summary">Get player HK weapon mode type.</td>
+	<td class="name" ><a href="#LaraObject:GetWeaponMode">LaraObject:GetWeaponMode([weaponType])</a></td>
+	<td class="summary">Get player weapon mode type.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#LaraObject:SetWeaponMode">LaraObject:SetWeaponMode(weaponMode)</a></td>
-	<td class="summary">Set player HK weapon mode type.</td>
+	<td class="name" ><a href="#LaraObject:SetWeaponMode">LaraObject:SetWeaponMode(weaponType, weaponMode)</a></td>
+	<td class="summary">Set player weapon mode type.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#LaraObject:GetVehicle">LaraObject:GetVehicle()</a></td>
@@ -821,19 +821,27 @@
 </dd>
     <dt>
     <a name = "LaraObject:GetWeaponMode"></a>
-    <strong>LaraObject:GetWeaponMode()</strong>
+    <strong>LaraObject:GetWeaponMode([weaponType])</strong>
     </dt>
     <dd>
-    Get player HK weapon mode type.
+    Get player weapon mode type.
 
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">weaponType</span>
+            <span class="types"><a class="type" href="../5 enums/Objects.WeaponType.html#">WeaponType</a></span>
+         Weapon to retrieve weapon mode for. If omitted, the mode of the currently equipped weapon is returned. Only works for HK weapon currently.
+         <em>Optional.</em>
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><a class="type" href="../5 enums/Objects.WeaponMode.html#">WeaponMode</a></span>
-        Player HK weapon mode type.
+        Player weapon mode type.
     </ol>
 
 
@@ -842,18 +850,22 @@
 </dd>
     <dt>
     <a name = "LaraObject:SetWeaponMode"></a>
-    <strong>LaraObject:SetWeaponMode(weaponMode)</strong>
+    <strong>LaraObject:SetWeaponMode(weaponType, weaponMode)</strong>
     </dt>
     <dd>
-    Set player HK weapon mode type.
+    Set player weapon mode type.
 
 
 
     <h3>Parameters:</h3>
     <ul>
+        <li><span class="parameter">weaponType</span>
+            <span class="types"><a class="type" href="../5 enums/Objects.WeaponType.html#">WeaponType</a></span>
+         Weapon to set weapon mode for. Only works for HK weapon currently.
+        </li>
         <li><span class="parameter">weaponMode</span>
             <span class="types"><a class="type" href="../5 enums/Objects.WeaponMode.html#">WeaponMode</a></span>
-         Player HK weapon mode type.
+         Player weapon mode type.
         </li>
     </ul>
 

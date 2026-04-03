@@ -3,7 +3,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.11 Lua API</title>
+    <title>TombEngine 1.11.1 Lua API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
 </head>
 <body>
@@ -180,6 +180,10 @@
 	<tr>
 	<td class="name" ><a href="#Status">Status(value)</a></td>
 	<td class="summary">The function adds the callback to enable diaries in levels.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#Debug">Debug(status)</a></td>
+	<td class="summary">Enables or disables debug output for custom diaries.</td>
 	</tr>
 	<tr>
 	<td class="name" ><a href="#IsVisible">IsVisible()</a></td>
@@ -430,6 +434,28 @@
         <li><span class="parameter">value</span>
             <span class="types"><span class="type">bool</span></span>
          True enables the diaries to be activated. False would disable the diaries.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Debug"></a>
+    <strong>Debug(status)</strong>
+    </dt>
+    <dd>
+    Enables or disables debug output for custom diaries.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">status</span>
+            <span class="types"><span class="type">bool</span></span>
+         If true, debug messages will be printed to the console.
         </li>
     </ul>
 
