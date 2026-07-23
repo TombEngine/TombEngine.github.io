@@ -3,8 +3,8 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
-    <title>TombEngine 1.11.1 Lua API</title>
-    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+    <title>TombEngine 2.0 Lua API</title>
+    <link rel="stylesheet" href="../resources/ldoc.css" type="text/css" />
 </head>
 <body>
 
@@ -24,16 +24,21 @@
 
 <div id="navigation">
 <br/>
-<h1>&nbsp;TombEngine</h1>
+<h1 class="project-title"><a class="project-title-link" href="../index.html"><img class="project-title-logo" src="../resources/TEN%20logo.png" alt="TEN logo" /><span>TombEngine</span></a></h1>
 
-<ul>
-  <li><a href="../index.html">Index</a></li>
-</ul>
+<div id="doc-search">
+<input id="doc-search-input" type="text" placeholder="Search all documentation" autocomplete="off" />
+<div id="doc-search-popup" class="doc-search-popup-hidden">
+    <div id="doc-search-summary">Type to search all generated documentation files.</div>
+    <div id="doc-search-results"></div>
+</div>
+</div>
 
 <h2>1 Special Tables</h2>
 <ul class="nowrap">
-  <li>    <a href="../1 special tables/GameVars.html">GameVars</a></li>
   <li>    <a href="../1 special tables/LevelFuncs.html">LevelFuncs</a></li>
+  <li>    <a href="../1 special tables/GlobalVars.html">GlobalVars</a></li>
+  <li>    <a href="../1 special tables/GameVars.html">GameVars</a></li>
   <li>    <a href="../1 special tables/LevelVars.html">LevelVars</a></li>
 </ul>
 <h2>2 Modules</h2>
@@ -53,12 +58,15 @@
 <ul class="nowrap">
   <li>    <a href="../3 classes/Collision.Ray.html">Collision.Ray</a></li>
   <li>    <a href="../3 classes/Collision.Probe.html">Collision.Probe</a></li>
+  <li>    <a href="../3 classes/Effects.ParticleGroups.html">Effects.ParticleGroups</a></li>
   <li>    <a href="../3 classes/Flow.Level.html">Flow.Level</a></li>
   <li>    <a href="../3 classes/Flow.Settings.html">Flow.Settings</a></li>
   <li>    <a href="../3 classes/Flow.Statistics.html">Flow.Statistics</a></li>
   <li>    <a href="../3 classes/Objects.AIObject.html">Objects.AIObject</a></li>
   <li>    <a href="../3 classes/Objects.Camera.html">Objects.Camera</a></li>
+  <li>    <a href="../3 classes/Objects.Creature.html">Objects.Creature</a></li>
   <li>    <a href="../3 classes/Objects.LaraObject.html">Objects.LaraObject</a></li>
+  <li>    <a href="../3 classes/Objects.Material.html">Objects.Material</a></li>
   <li>    <a href="../3 classes/Objects.Moveable.html">Objects.Moveable</a></li>
   <li>    <a href="../3 classes/Objects.Room.html">Objects.Room</a></li>
   <li>    <a href="../3 classes/Objects.Sink.html">Objects.Sink</a></li>
@@ -87,7 +95,7 @@
 <h2>5 Enums</h2>
 <ul class="nowrap">
   <li>    <a href="../5 enums/Collision.IntersectionType.html">Collision.IntersectionType</a></li>
-  <li>    <a href="../5 enums/Collision.MaterialType.html">Collision.MaterialType</a></li>
+  <li>    <a href="../5 enums/Collision.FloorMaterialType.html">Collision.FloorMaterialType</a></li>
   <li>    <a href="../5 enums/Effects.BlendID.html">Effects.BlendID</a></li>
   <li>    <a href="../5 enums/Effects.EffectID.html">Effects.EffectID</a></li>
   <li>    <a href="../5 enums/Effects.StreamerFeatherMode.html">Effects.StreamerFeatherMode</a></li>
@@ -101,14 +109,18 @@
   <li>    <a href="../5 enums/Flow.WeatherType.html">Flow.WeatherType</a></li>
   <li>    <a href="../5 enums/Input.ActionID.html">Input.ActionID</a></li>
   <li>    <a href="../5 enums/Input.AxisID.html">Input.AxisID</a></li>
+  <li>    <a href="../5 enums/Input.InputDevice.html">Input.InputDevice</a></li>
   <li>    <a href="../5 enums/Logic.CallbackPoint.html">Logic.CallbackPoint</a></li>
   <li>    <a href="../5 enums/Logic.EventType.html">Logic.EventType</a></li>
   <li>    <a href="../5 enums/Logic.EndReason.html">Logic.EndReason</a></li>
+  <li>    <a href="../5 enums/Objects.MoodType.html">Objects.MoodType</a></li>
   <li>    <a href="../5 enums/Objects.AmmoType.html">Objects.AmmoType</a></li>
   <li>    <a href="../5 enums/Objects.HandStatus.html">Objects.HandStatus</a></li>
   <li>    <a href="../5 enums/Objects.WaterStatus.html">Objects.WaterStatus</a></li>
+  <li>    <a href="../5 enums/Objects.WeaponFlashMode.html">Objects.WeaponFlashMode</a></li>
   <li>    <a href="../5 enums/Objects.WeaponMode.html">Objects.WeaponMode</a></li>
   <li>    <a href="../5 enums/Objects.WeaponType.html">Objects.WeaponType</a></li>
+  <li>    <a href="../5 enums/Objects.TextureMaterialType.html">Objects.TextureMaterialType</a></li>
   <li>    <a href="../5 enums/Objects.InteractionType.html">Objects.InteractionType</a></li>
   <li>    <a href="../5 enums/Objects.MoveableStatus.html">Objects.MoveableStatus</a></li>
   <li>    <here>Objects.ObjID</here></li>
@@ -119,6 +131,7 @@
   <li>    <a href="../5 enums/Util.LogLevel.html">Util.LogLevel</a></li>
   <li>    <a href="../5 enums/View.AlignMode.html">View.AlignMode</a></li>
   <li>    <a href="../5 enums/View.CameraType.html">View.CameraType</a></li>
+  <li>    <a href="../5 enums/View.DOFMode.html">View.DOFMode</a></li>
   <li>    <a href="../5 enums/View.PostProcessMode.html">View.PostProcessMode</a></li>
   <li>    <a href="../5 enums/View.ScaleMode.html">View.ScaleMode</a></li>
 </ul>
@@ -127,6 +140,8 @@
   <li>    <a href="../6 lua utility modules/CustomBar.html">CustomBar</a></li>
   <li>    <a href="../6 lua utility modules/CustomDiary.html">CustomDiary</a></li>
   <li>    <a href="../6 lua utility modules/EventSequence.html">EventSequence</a></li>
+  <li>    <a href="../6 lua utility modules/PhotoMode.html">PhotoMode</a></li>
+  <li>    <a href="../6 lua utility modules/RingInventory.html">RingInventory</a></li>
   <li>    <a href="../6 lua utility modules/Timer.html">Timer</a></li>
   <li>    <a href="../6 lua utility modules/Type.html">Type</a></li>
 </ul>
@@ -298,6 +313,10 @@
 	</tr>
 	<tr>
 	<td class="name" ><a href="#HAIR_SECONDARY">HAIR_SECONDARY</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PHOTOMODE_ANIMS">PHOTOMODE_ANIMS</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
@@ -1057,6 +1076,42 @@
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
+	<td class="name" ><a href="#BOO_MUTANT">BOO_MUTANT</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#HYBRID_MUTANT">HYBRID_MUTANT</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#OILRED">OILRED</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#WHITE_SOLDIER">WHITE_SOLDIER</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PUNK">PUNK</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#LONDON_MERCENARY">LONDON_MERCENARY</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#SWAT_GUN">SWAT_GUN</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PRISONER">PRISONER</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#WASP_MUTANT_EMITTER">WASP_MUTANT_EMITTER</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
 	<td class="name" ><a href="#SPRINGBOARD">SPRINGBOARD</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
@@ -1610,6 +1665,82 @@
 	</tr>
 	<tr>
 	<td class="name" ><a href="#FIRE_PENDULUM">FIRE_PENDULUM</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#HEAVY_STAMPER">HEAVY_STAMPER</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#DRILL_BIT">DRILL_BIT</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#SPIKED_FRAME">SPIKED_FRAME</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#SWINGING_SANDBAG">SWINGING_SANDBAG</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#SWINGING_BOX">SWINGING_BOX</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#OVERHEAD_PULLEY_HOOK">OVERHEAD_PULLEY_HOOK</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#SWINGING_IRON_ANCHOR">SWINGING_IRON_ANCHOR</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#SWINGING_SPIKE_BAG">SWINGING_SPIKE_BAG</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#CIRCULAR_SAW">CIRCULAR_SAW</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#ROLLING_BARRELS">ROLLING_BARRELS</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#MULTIPLE_BOULDERS">MULTIPLE_BOULDERS</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#FAN">FAN</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#LARGE_FAN">LARGE_FAN</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#FALLING_SPIKES">FALLING_SPIKES</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#TUNNEL_BORER">TUNNEL_BORER</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#AIRPLANE_PROPELLER">AIRPLANE_PROPELLER</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#ROTATING_KNIFE_DISK">ROTATING_KNIFE_DISK</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#UNDERWATER_MINE">UNDERWATER_MINE</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#FALLING_SANDBAG">FALLING_SANDBAG</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
@@ -2625,19 +2756,19 @@
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#UNDERWATER_WALL_SWITCH1">UNDERWATER_WALL_SWITCH1</a></td>
+	<td class="name" ><a href="#WALL_SWITCH1">WALL_SWITCH1</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#UNDERWATER_WALL_SWITCH2">UNDERWATER_WALL_SWITCH2</a></td>
+	<td class="name" ><a href="#WALL_SWITCH2">WALL_SWITCH2</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#UNDERWATER_CEILING_SWITCH1">UNDERWATER_CEILING_SWITCH1</a></td>
+	<td class="name" ><a href="#CEILING_SWITCH1">CEILING_SWITCH1</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
-	<td class="name" ><a href="#UNDERWATER_CEILING_SWITCH2">UNDERWATER_CEILING_SWITCH2</a></td>
+	<td class="name" ><a href="#CEILING_SWITCH2">CEILING_SWITCH2</a></td>
 	<td class="summary">Object ID.</td>
 	</tr>
 	<tr>
@@ -4120,6 +4251,18 @@
 	<td class="name" ><a href="#INTERACTION_SPRITES">INTERACTION_SPRITES</a></td>
 	<td class="summary">Sprite Object ID.</td>
 	</tr>
+	<tr>
+	<td class="name" ><a href="#INVENTORY_SPRITES">INVENTORY_SPRITES</a></td>
+	<td class="summary">Sprite Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PHOTOMODE_SPRITES">PHOTOMODE_SPRITES</a></td>
+	<td class="summary">Sprite Object ID.</td>
+	</tr>
+	<tr>
+	<td class="name" ><a href="#PHOTOMODE_FRAMES">PHOTOMODE_FRAMES</a></td>
+	<td class="summary">Object ID.</td>
+	</tr>
 </table>
 
 <br/>
@@ -4702,6 +4845,21 @@
     <dt>
     <a name = "HAIR_SECONDARY"></a>
     <strong>HAIR_SECONDARY</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PHOTOMODE_ANIMS"></a>
+    <strong>PHOTOMODE_ANIMS</strong>
     </dt>
     <dd>
     Object ID.
@@ -7550,6 +7708,141 @@
 
 </dd>
     <dt>
+    <a name = "BOO_MUTANT"></a>
+    <strong>BOO_MUTANT</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "HYBRID_MUTANT"></a>
+    <strong>HYBRID_MUTANT</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "OILRED"></a>
+    <strong>OILRED</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "WHITE_SOLDIER"></a>
+    <strong>WHITE_SOLDIER</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PUNK"></a>
+    <strong>PUNK</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LONDON_MERCENARY"></a>
+    <strong>LONDON_MERCENARY</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SWAT_GUN"></a>
+    <strong>SWAT_GUN</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PRISONER"></a>
+    <strong>PRISONER</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "WASP_MUTANT_EMITTER"></a>
+    <strong>WASP_MUTANT_EMITTER</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "SPRINGBOARD"></a>
     <strong>SPRINGBOARD</strong>
     </dt>
@@ -9622,6 +9915,291 @@
     <dt>
     <a name = "FIRE_PENDULUM"></a>
     <strong>FIRE_PENDULUM</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "HEAVY_STAMPER"></a>
+    <strong>HEAVY_STAMPER</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DRILL_BIT"></a>
+    <strong>DRILL_BIT</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SPIKED_FRAME"></a>
+    <strong>SPIKED_FRAME</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SWINGING_SANDBAG"></a>
+    <strong>SWINGING_SANDBAG</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SWINGING_BOX"></a>
+    <strong>SWINGING_BOX</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "OVERHEAD_PULLEY_HOOK"></a>
+    <strong>OVERHEAD_PULLEY_HOOK</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SWINGING_IRON_ANCHOR"></a>
+    <strong>SWINGING_IRON_ANCHOR</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SWINGING_SPIKE_BAG"></a>
+    <strong>SWINGING_SPIKE_BAG</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CIRCULAR_SAW"></a>
+    <strong>CIRCULAR_SAW</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ROLLING_BARRELS"></a>
+    <strong>ROLLING_BARRELS</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MULTIPLE_BOULDERS"></a>
+    <strong>MULTIPLE_BOULDERS</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "FAN"></a>
+    <strong>FAN</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LARGE_FAN"></a>
+    <strong>LARGE_FAN</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "FALLING_SPIKES"></a>
+    <strong>FALLING_SPIKES</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "TUNNEL_BORER"></a>
+    <strong>TUNNEL_BORER</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AIRPLANE_PROPELLER"></a>
+    <strong>AIRPLANE_PROPELLER</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ROTATING_KNIFE_DISK"></a>
+    <strong>ROTATING_KNIFE_DISK</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UNDERWATER_MINE"></a>
+    <strong>UNDERWATER_MINE</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "FALLING_SANDBAG"></a>
+    <strong>FALLING_SANDBAG</strong>
     </dt>
     <dd>
     Object ID.
@@ -13430,8 +14008,8 @@
 
 </dd>
     <dt>
-    <a name = "UNDERWATER_WALL_SWITCH1"></a>
-    <strong>UNDERWATER_WALL_SWITCH1</strong>
+    <a name = "WALL_SWITCH1"></a>
+    <strong>WALL_SWITCH1</strong>
     </dt>
     <dd>
     Object ID.
@@ -13445,8 +14023,8 @@
 
 </dd>
     <dt>
-    <a name = "UNDERWATER_WALL_SWITCH2"></a>
-    <strong>UNDERWATER_WALL_SWITCH2</strong>
+    <a name = "WALL_SWITCH2"></a>
+    <strong>WALL_SWITCH2</strong>
     </dt>
     <dd>
     Object ID.
@@ -13460,8 +14038,8 @@
 
 </dd>
     <dt>
-    <a name = "UNDERWATER_CEILING_SWITCH1"></a>
-    <strong>UNDERWATER_CEILING_SWITCH1</strong>
+    <a name = "CEILING_SWITCH1"></a>
+    <strong>CEILING_SWITCH1</strong>
     </dt>
     <dd>
     Object ID.
@@ -13475,8 +14053,8 @@
 
 </dd>
     <dt>
-    <a name = "UNDERWATER_CEILING_SWITCH2"></a>
-    <strong>UNDERWATER_CEILING_SWITCH2</strong>
+    <a name = "CEILING_SWITCH2"></a>
+    <strong>CEILING_SWITCH2</strong>
     </dt>
     <dd>
     Object ID.
@@ -19039,6 +19617,51 @@
 
 
 </dd>
+    <dt>
+    <a name = "INVENTORY_SPRITES"></a>
+    <strong>INVENTORY_SPRITES</strong>
+    </dt>
+    <dd>
+    Sprite Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PHOTOMODE_SPRITES"></a>
+    <strong>PHOTOMODE_SPRITES</strong>
+    </dt>
+    <dd>
+    Sprite Object ID.
+
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PHOTOMODE_FRAMES"></a>
+    <strong>PHOTOMODE_FRAMES</strong>
+    </dt>
+    <dd>
+    Object ID.
+
+
+
+
+
+
+
+
+</dd>
 </dl>
 
 
@@ -19048,5 +19671,8 @@
 <i>generated by <a href="https://github.com/hispidence/TEN-LDoc">TEN-LDoc</a> (a fork of <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a>)</i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
+<script type="text/javascript">window.TENDocRoot = '../';</script>
+<script type="text/javascript" src="../resources/search-index.js"></script>
+<script type="text/javascript" src="../resources/docs-search.js"></script>
 </body>
 </html>
